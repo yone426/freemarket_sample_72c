@@ -99,22 +99,6 @@ Things you may want to cover:
 
 - has_ancestry
 
-
-## sub_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_name|string|null: false, foreign_key: true|
-### Association
-- belongs_to :main_category
-- has_many :sub2_categories
-
-## sub2_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_name|string|null: false, foreign_key: true|
-### Association
-- belongs_to :sub_category
-
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -133,3 +117,19 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+
+<!-- ## sub_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_name|string|null: false, foreign_key: true|
+### Association
+- belongs_to :main_category
+- has_many :sub2_categories
+
+## sub2_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_name|string|null: false, foreign_key: true|
+### Association
+- belongs_to :sub_category -->
