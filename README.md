@@ -23,5 +23,104 @@ Things you may want to cover:
 
 * ...
 
-------------------------
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|fullname|string|null: false|
+|fullname_katakana|string|null: false|
+|phone_number|integer |null: false|
+|birthday|integer |null: false|
+### Association
+- has_many :products 
+- has_many :comments
+- has_many :likes
+- has_many :addresses
+- has_many :cards
 
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|fullname|string|null: false|
+|fullname_katakana|string|null: false|
+|phone_number|integer |null: false|
+|birthday|integer |null: false|
+### Association
+- has_many :products
+- has_many :comments
+- has_many :likes
+- has_many :addresses
+- has_many :cards
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null:false,foreign_key: true|
+|zipcode|string|null:false|
+|todouhuken|string|null:false|
+|sityousonn|string|null:false|
+|bannchi|string||
+|tatemono|string||
+### Association
+- belongs_to :user
+
+
+## cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null:false,foreign_key: true|
+|card_number|integer|null:false|
+### Association
+- belongs_to :user
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false, foreign_key: true|
+### Association
+- belongs_to :product
+
+## main_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_name|string|null: false, foreign_key: true|
+### Association
+- belongs_to :product
+- has_many :sub_categories
+
+## sub_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_name|string|null: false, foreign_key: true|
+### Association
+- belongs_to :main_category
+- has_many :sub2_categories
+
+## sub2_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_name|string|null: false, foreign_key: true|
+### Association
+- belongs_to :sub_category
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|comment|string|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :product
