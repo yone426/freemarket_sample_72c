@@ -43,8 +43,8 @@ Things you may want to cover:
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|foreign_key: true
-|product|string|null: false|
+|user_id|reference|foreign_key: true|
+|name|string|null: false|
 |details|string|null: false|
 |categories|string|null: false|
 |price|int|null: false|
@@ -53,7 +53,7 @@ Things you may want to cover:
 |shippingarea|stirng|null: false|
 |shippingdate|string|null: false|
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_many :images
 - has_many :main_categories
 - has_many :comments
