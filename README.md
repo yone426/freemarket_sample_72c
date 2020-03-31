@@ -55,7 +55,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :likes
 - has_many :addresses
-- has_many :cards
+
 
 ## addressesテーブル
 |Column|Type|Options|
