@@ -95,8 +95,10 @@ Things you may want to cover:
 |category_name|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
-- has_many :sub_categories
+- has_many :sub_categories, dependent: :nullify
+
 - has_ancestry
+
 
 ## sub_categoriesテーブル
 |Column|Type|Options|
