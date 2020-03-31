@@ -43,18 +43,15 @@ Things you may want to cover:
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
-|fullname|string|null: false|
-|fullname_katakana|string|null: false|
-|phone_number|integer |null: false|
-|birthday|integer |null: false|
-### Association
-- has_many :products
-- has_many :comments
-- has_many :likes
-- has_many :addresses
+|user_id|reference|foreign_key: true
+|product|string|null: false|
+|details|string|null: false|
+|categories|string|null: false|
+|price|int|null: false|
+|condition|string|null: false|
+|exhibition|string|null: false|
+|shippingarea|stirng|null: false|
+|shippingdate|string|null: false|
 
 
 ## addressesテーブル
