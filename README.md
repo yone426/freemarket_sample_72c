@@ -119,6 +119,7 @@ Things you may want to cover:
 - belongs_to :product
 
 
+
 <!-- ## sub_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
