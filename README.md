@@ -52,6 +52,12 @@ Things you may want to cover:
 |exhibition|string|null: false|
 |shippingarea|stirng|null: false|
 |shippingdate|string|null: false|
+### Association
+- belongs_to :users
+- has_many :images
+- has_many :main_categories
+- has_many :comments
+- has_many :likes
 
 
 ## addressesテーブル
@@ -59,10 +65,10 @@ Things you may want to cover:
 |------|----|-------|
 |user|references|null:false,foreign_key: true|
 |zipcode|string|null:false|
-|todouhuken|string|null:false|
-|sityousonn|string|null:false|
-|bannchi|string||
-|tatemono|string||
+|prefectures|string|null:false|
+|municipalities|string|null:false|
+|address|string||
+|building|string||
 ### Association
 - belongs_to :user
 
@@ -78,6 +84,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|product_id||references|null:false,foreign_key: true|
 |image|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
@@ -89,6 +96,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 - has_many :sub_categories
+- has_ancestry
 
 ## sub_categoriesテーブル
 |Column|Type|Options|
@@ -108,6 +116,8 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|references|null:false,foreign_key: true|
+|product_id|references|null:false,foreign_key: true|
 |comment|string|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
