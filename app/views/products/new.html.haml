@@ -1,0 +1,99 @@
+.exhibit
+  .exhibit__title
+    = link_to image_tag('/assets/logo/logo.png', class: 'merucari'), root_path
+  .exhibit__all
+    = form_with(model: @product, local: true) do |f|
+
+      .exhibit__all__images
+        .left_text
+          %span.fat 出品画像 
+          %span.red 必須
+        .ten
+          %p最大10枚までアップロードできます
+        
+        = f.file_field :image, class:"image_form"
+          
+
+      .exhibit__all__name
+        .left_text
+          %span.fat 商品名 
+          %span.red 必須
+        .form
+          = f.text_field :name, placeholder:"40字まで" , class:"name_form"
+
+      .exhibit__all__details
+        .left_text
+          %span.fat 商品の説明
+          %span.red 必須
+        .form
+        = f.text_area :details,placeholder:"傷が少しあります" , class:"name_form"
+
+      .exhibit__all__example
+        .example_name
+          商品の詳細
+        .exhibit__all__example__categories
+          .left_text
+            %span.fat カテゴリー
+            %span.red 必須
+          .form
+            = f.text_field :categories, class:"name_form"
+        .exhibit__all__example__condtion
+          .left_text
+            %span.fat 商品の状態
+            %span.red 必須
+          .form  
+            = f.text_field :condition, class:"name_form"
+
+      .exhibit__all__send
+        .send_name
+          配送について
+        .exhibit__all__send__money
+          .left_text
+            %span.fat 配送料の負担
+            %span.red 必須
+          .form  
+            = f.text_field :exhibition, class:"name_form"
+        .exhibit__all__send__area
+          .left_text
+            %span.fat 発送元の地域
+            %span.red 必須
+          .form  
+            = f.text_field :shippingarea, class:"name_form"
+        .exhibit__all__send__date
+          .left_text
+            %span.fat 発送までの日数
+            %span.red 必須
+          .form  
+            = f.text_field :shippingdate, class:"name_form"
+
+      .exhibit__all__price
+        %p価格（¥300〜9,999,999）
+        .price_between
+          .left_text
+            %span.fat 販売価格
+            %span.red 必須
+          .form      
+            %span.red ¥
+            = f.number_field :price, class:"name_form"
+        .fee    
+          %p#tax 販売手数料（10%）
+          %p#tax -
+        .profit
+          %p#tax 販売利益
+          %p#tax -  
+
+
+
+      .exhibit__all__decide
+        .out
+          = button_tag type: "submit",class: "out_button" do
+            = "出品する"
+        .save
+          = button_tag type: "submit",class: "save_button" do
+            = "下書きに保存"
+        .back
+          = link_to type: "submit",class: "out_button" do
+            = "もどる"
+      
+  .exhibit__footer
+    
