@@ -1,17 +1,28 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+.signup_wrapper
+  = link_to image_tag('/assets/logo/logo.png', class: 'signup_wrapper__image'), root_path
+  .signup_wrapper__form
+    %h2.title ログイン
+    .form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email ,class: 'form__label'
+          %span Eメール
+          = f.email_field :email, autofocus: true, autocomplete: "email",class:'form__field'
+        .field
+          = f.label :password ,class: 'form__label'
+          %span パスワード
+          %br/
+          = f.password_field :password, autocomplete: "current-password",class:'form__field'
+
+
+        - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me
+            - f.label :remember_me
+            %span パスワードを覚えさせますか？
+
+        .actions
+          = f.submit "Log in" ,class:'actions__submit'
+
+      = link_to "新規登録", new_user_registration_path,class:'form__link'  
+      -# = render "users/shared/links"
