@@ -77,7 +77,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false,foreign_key: true|
-|card_number|integer|null:false|
+|customar_id|integer|null:false|
+|card_id|integer|null:false|
+|token|string|null:false|
+|
 ### Association
 - belongs_to :user
 
