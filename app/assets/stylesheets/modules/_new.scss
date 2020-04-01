@@ -1,0 +1,177 @@
+.exhibit{
+  width: 100vw;
+  height: 100%;
+  background-color: #f5f5f5;
+
+  &__title{
+    text-align: center;
+    padding: 20px;
+    .merucari{
+      width: 250px;
+      height: 100px;
+    }
+  
+  }
+  &__all{
+    background-color:white;
+    width: 45%;
+    margin: 0 auto;
+    padding: 40px;
+
+    &__images{
+     
+      margin-bottom: 30px;
+      .ten{
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      .image_form{
+        width :100%;
+        height :200px;
+        background-color: #f5f5f5;
+        border: solid 2px black;
+        margin-bottom: 10px;
+        #image{
+        }
+      }
+    }
+
+    &__name{
+      margin-bottom: 30px;
+      .name_form{
+        width: 100%;
+      }
+      
+    }
+    &__details{
+      margin-bottom: 20px;
+      .name_form{
+        width: 100%;
+      }
+    }
+    &__example{
+      margin-bottom: 30px;
+      .example_name{
+        margin-bottom: 20px;
+      }
+      &__categories{
+        margin-bottom: 20px;
+        .name_form{
+          width: 100%;
+        }
+      }
+      &__condtion{
+        .name_form{
+          width: 100%;
+        }
+      }
+    }
+    &__send{
+      margin-bottom: 30px;
+      .send_name{
+        margin-bottom: 20px;
+      }
+      &__money{
+        .name_form{
+          width: 100%;
+        }
+      }
+      &__area{
+        .name_form{
+          width: 100%;
+        }
+      }
+      &__date{
+        .name_form{
+          width: 100%;
+        }
+      }
+    }
+
+    &__price{
+      margin-bottom: 30px;
+      .price_between{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        .left_text{
+          margin-bottom: 15px;
+          .fat{
+            font-weight: bold;
+            
+          }
+          .red{
+            background-color: red;
+            color: white;
+            font-size: 15px;
+          }
+        }
+      } 
+      .fee{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      } 
+      .profit{
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    
+
+    &__decide{
+      .out{
+        text-align: center;
+        margin-bottom: 20px;
+        .out_button{
+          background-color: red;
+          color: white;
+          width: 50%;
+          height: 60px;
+          font-size: 20px;
+        }
+      }
+      .save{
+        text-align: center;
+        margin-bottom: 20px;
+        .save_button{
+          background-color: rgb(141, 133, 133);
+          width: 50%;
+          height: 60px;
+          font-size: 20px;
+        }  
+      }
+      .back{
+        text-align: center;
+        a{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+
+  &__footer{
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100px;
+  }
+  
+  .left_text{
+    margin-bottom: 15px;
+    .fat{
+      font-weight: bold;
+      
+    }
+    .red{
+      background-color: red;
+      color: white;
+      font-size: 15px;
+    }
+  }  
+  
+  .form{
+    margin-bottom: 10px;
+  }
+}
