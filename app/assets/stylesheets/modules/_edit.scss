@@ -1,0 +1,140 @@
+// 購入確認ページ
+// とりあえずeditでやってます。
+
+.purchase-confirmation-page {
+  width: 100%;
+  height: 170vh;
+  background-color: #f5f5f5;
+  position: relative;
+  .header {
+    height: 150px;
+    width: 100%;
+    background-color: #f5f5f5; 
+    &__logo {
+      display: block;
+      height: 50px;
+      width: 200px;
+      margin: 0 auto;
+      padding-top: 50px;
+    }
+  }
+  .main {
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    &__contents {
+      &__head {
+        background-color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 100px;
+        text-align: center; 
+        border-bottom: solid 1px #f5f5f5;
+      }
+      &__item-info {
+        height: 100px;
+        display: flex;
+        background-color:#fff;
+        border-bottom: solid 1px #f5f5f5;
+        padding: 30px 150px;
+        &__image {
+          &__small-image {
+            height: 80px;
+            width: 80px;
+          }
+        }
+        &__detail {
+          margin-left: 20px;
+          &__name {
+            font-size: 14px;
+          }
+          &__price {
+            font-size: 14px;
+          }
+        }
+      }
+      .payment-amount {
+        height: 100px;
+        background-color: #fff;
+        border-bottom: solid 1px #f5f5f5;
+        padding: 30px 150px;
+        &__top {
+          display: flex;
+          justify-content: space-between;
+          &__text {
+            font-size: 18px;
+          }
+          &__price {
+            font-size: 30px;
+          }
+        }
+        &__point-text {
+          color: #ccc;
+        }
+      }
+      .payment-method {
+        height: 100px;
+        background-color: #fff;
+        border-bottom: solid 1px #f5f5f5;
+        padding: 30px 150px;
+        font-size: 14px;
+        &__top {
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            font-weight: bold;
+          }
+          &__right {
+            color: #0099e8;
+          }
+        }
+      }
+      .shipping-adress {
+        height: 100px;
+        background-color: #fff;
+        border-bottom: solid 1px #f5f5f5;
+        padding: 30px 150px;
+        font-size: 14px;
+        &__top {
+          display: flex;
+          justify-content: space-between;
+          &__left {
+            font-weight: bold;
+          }
+          &__right {
+            color: #0099e8;
+          }
+        }
+      }
+      .bottom-content {
+        background-color: #fff;
+        padding: 30px 150px;
+        .attention-text {
+          height: 100px;
+          background-color: #fff;
+          font-size: 14px;
+          color: grey;     
+        }
+        .purchase-btn {
+          height: 50px;
+          background-color: #ea352d;
+          color: #fff;
+          font-weight: bold;
+          line-height: 50px;
+          text-align: center;
+        }  
+      } 
+    }
+  }
+  .footer{
+    height: 200px;
+    width: 100%;
+    background-color: #f5f5f5;
+    position: absolute;
+    bottom: 0px;
+    &__text {
+      display: flex;
+    }
+  }
+}
