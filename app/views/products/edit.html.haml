@@ -3,14 +3,14 @@
 
 .purchase-confirmation-page
   .header
-    = link_to image_tag('/assets/logo/logo-white.png', class: 'header__logo')
+    = link_to image_tag asset_path('logo/logo-white.png'), class: 'header__logo'
   .main 
     .main__contents
       .main__contents__head
         %p 購入内容の確認
       .main__contents__item-info
         .main__contents__item-info__image
-          = image_tag('/assets/icon/icon_brand.png', size: "80x80", class: 'main__item__image__small-image')
+          = image_tag asset_path('icon/icon_brand.png'), size: "80x80", class: 'main__item__image__small-image'
         .main__contents__item-info__detail
           .name
             %p 黒い子供用の靴

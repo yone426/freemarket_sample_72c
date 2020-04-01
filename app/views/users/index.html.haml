@@ -23,7 +23,7 @@
 
     .main
       .main__top
-        = image_tag '/assets/logo/logo.png', class: 'main__top__image'
+        = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
         .main__top__name
           %span naoya
         .main__top__sell
@@ -37,7 +37,7 @@
       .main__list
 
         .list
-          = image_tag '/assets/logo/logo.png',class: 'list__image'
+          = image_tag asset_path('logo/logo.png'),class: 'list__image'
 
           %ul.list__product
             -# ダミーデータ１
@@ -48,7 +48,7 @@
               %span セーブデータは残っていません
 
         .list
-          = image_tag '/assets/logo/logo.png',class: 'list__image'
+          = image_tag asset_path('logo/logo.png'),class: 'list__image'
 
           %ul.list__product
 
