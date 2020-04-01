@@ -4,12 +4,12 @@
   background-color: #f5f5f5;
 
   &__title{
-  text-align: center;
-  padding: 20px;
-  .merucari{
-    width: 250px;
-    height: 100px;
-  }
+    text-align: center;
+    padding: 20px;
+    .merucari{
+      width: 250px;
+      height: 100px;
+    }
   
   }
   &__all{
@@ -19,19 +19,8 @@
     padding: 40px;
 
     &__images{
-      // border-bottom: solid 1px black;
+     
       margin-bottom: 30px;
-
-      // .left_text{
-      //   .fat{
-      //     font-weight: bold;
-      //   }
-      //   .red{
-      //     background-color: red;
-      //     color: white;
-      //     font-size: 15px;
-      //   }
-      
       .ten{
         font-size: 15px;
         margin-bottom: 10px;
@@ -41,7 +30,6 @@
         height :200px;
         background-color: #f5f5f5;
         border: solid 2px black;
-        // display: none;
         margin-bottom: 10px;
         #image{
         }
@@ -56,14 +44,12 @@
       
     }
     &__details{
-      // border-bottom: solid 1px black;
       margin-bottom: 20px;
       .name_form{
         width: 100%;
       }
     }
     &__example{
-      // border-bottom: solid 1px black;
       margin-bottom: 30px;
       .example_name{
         margin-bottom: 20px;
@@ -81,7 +67,6 @@
       }
     }
     &__send{
-      // border-bottom: solid 1px black;
       margin-bottom: 30px;
       .send_name{
         margin-bottom: 20px;
