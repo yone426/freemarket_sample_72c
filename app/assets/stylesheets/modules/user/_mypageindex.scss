@@ -1,0 +1,144 @@
+$takasa:45px;
+@mixin list {
+  li{
+    height: $takasa;
+    background-color: white;
+    border-bottom:2px solid #f5f5f5;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      background-color: #fafafa;
+      text-decoration: none;
+      transform: translate(5px);
+    }
+    .list{
+      color: black;
+      margin-left: 20px;
+      text-decoration: none;
+      line-height: $takasa;
+      
+    }
+  }
+}
+
+
+.mypage{
+  background-color: #f5f5f5;
+  height: 100vh;
+  padding-top: 20px;
+  &__wrraper {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    
+    
+    .side{
+      width: 250px;
+      margin-right: 30px;
+      &__function{
+        margin-bottom: 40px;
+        .li_mypage{
+          height: $takasa;
+          background-color: #eee;
+          font-size: 1.1em;
+          color: black;
+        }
+        @include list;
+      }
+      p{
+        margin-left: 20px;
+      }
+      &__acount{
+        @include list;
+      }
+    }
+    .main{
+      width: 800px;
+      &__top{
+        background-color: #3CCACE;
+        padding-top: 40px;
+        height: 170px;
+        &__image{
+          width: 80px;
+          height: 80px;
+          border-radius: 100px;
+          display: block;
+          margin: 0 auto;
+          background-color: white;
+        }
+        &__name{
+          margin: 0 auto;
+          width: 200px;
+          text-align: center;
+        }
+        &__sell{
+          margin: 0 auto;
+          width: 200px;
+          text-align: center;
+        }
+      }
+      &__button{
+        display: flex;
+        width: 100%;
+        background-color: white;
+        button{
+          width: 50%;
+          border-style: none;
+          display: block;
+          height: 50px;
+          font-weight:bold ;
+          &:hover{
+            background-color:#cec5c5;
+          }
+        }
+
+      }
+      &__list{
+        height: 500px;
+        background-color: white;
+        .list{
+          height:80px;
+          display: flex;
+          border-bottom: 1px solid #f5f5f5;
+          &:hover{
+            background-color: rgb(247, 247, 247);
+          }
+          &__image{
+  
+            width: 50px;
+            height: 50px;
+            background-color: #eee;
+            margin: 15px;
+          }
+          &__product{
+            width: 100%;
+            &__title{
+              padding: 2px;
+            }
+            &__content{
+              font-size: 0.8em;
+            }
+          }
+        }
+        .link{
+          height: 70px;
+          width: 95%;
+          margin: 0 auto;
+          display: block;
+          background-color: #eee;
+          margin-top: 15px;
+          text-align: center;
+          line-height: 70px;
+          text-decoration: none;
+          color: gray;
+          cursor: pointer;
+          &:hover{
+            background-color: #fafafa;
+            color: black;
+          }
+        }
+
+      }
+    }
+  }
+}
