@@ -92,7 +92,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-## main_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category_name|string|null: false, foreign_key: true|
