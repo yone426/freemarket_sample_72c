@@ -163,17 +163,16 @@
     }
   }
   .nav-item {
-    margin: 24px auto 0;
+    margin: 0 auto;
     width: 700px;
     display: flex;
+    padding-top: 20px;
     ul {
       list-style: none;
     }
     &__prev {
       padding: 0 0 0 14px;
       text-align: left;
-      position: absolute;
-      left: 350px;
       li {
         position: relative;
         word-wrap: break-word;
@@ -185,9 +184,8 @@
       }
     }
     &__next {
-      position: absolute;
-      right: 350px;
       text-align: right;
+      padding-left: 500px;
       li {
         position: relative;
         width: 45%;
