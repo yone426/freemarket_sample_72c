@@ -1,0 +1,43 @@
+.signup_wrapper
+  = link_to image_tag(asset_path('/assets/logo/logo.png'), class: 'signup_wrapper__image'), root_path
+  .signup_wrapper__form
+    %h2.title 住所情報登録
+    .form
+      = form_for @address  do |f|
+        .field
+          = f.label :zipcode ,class: 'form__label'
+          %span 郵便番号
+          = = f.text_field :zipcode, autofocus: true, autocomplete: "zipcode",class:'form__field'
+
+        .field
+          = f.label :prefectures ,class: 'form__label'
+          %span 都道府県
+          %br/
+          = = f.select :prefectures,@todouhuken, autocomplete: "current-password",class:'form__select'
+
+        .field
+          = f.label :municiplities ,class: 'form__label'
+          %span 市町村
+          = = f.text_field :municiplities, autofocus: true, autocomplete: "municiplities",class:'form__field'
+
+        .field
+          = f.label :address ,class: 'form__label'
+          %span 番地
+          = = f.text_field :municiplities, autofocus: true, autocomplete: "municiplities",class:'form__field'
+
+        .field
+          = f.label :address ,class: 'form__label'
+          %span 番地
+          = = f.text_field :municiplities, autofocus: true, autocomplete: "municiplities",class:'form__field'
+
+        
+
+        
+
+        
+
+
+        .actions
+          = f.submit "保存" ,class:'actions__submit'
+
+      = link_to "新規登録", new_user_registration_path,class:'form__link' 

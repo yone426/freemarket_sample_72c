@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one :addresse
   has_one :card
 
-  validates :name,:email,:nickname,:fullname,:fullname_katakana,:phone_number,:birthday, presence: true
+  # validates :email,:nickname,:fullname,:fullname_katakana,:phone_number,:birthday, presence: true
 
 
 

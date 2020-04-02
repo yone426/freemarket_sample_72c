@@ -4,7 +4,7 @@
   .signup_wrapper__form
     %h2.title 新規登録
     .form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(@user,url: user_registration_path) do |f|
         = render "devise/shared/error_messages", resource: resource
         .field
           = f.label :nickname  ,class: 'form__label' 
@@ -59,6 +59,6 @@
         
 
         .actions
-          = f.submit "保存",class:'actions__submit'
+          = f.submit "もう少し",class:'actions__submit'
       = link_to 'ログインページ', new_user_session_path,class:'form__link'
       
