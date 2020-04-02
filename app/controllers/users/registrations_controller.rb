@@ -20,7 +20,7 @@ def create  #1ページ目で入力した情報のバリデーションチェッ
   end
   session["devise.regist_data"] = {user: @user.attributes}
   session["devise.regist_data"][:user]["password"] = params[:user][:password]
-  address = @user.build_addresse
+  @address = @user.build_address
   @todouhuken = { 北海道: "北海道" ,
     青森県: "青森県" ,
     岩手県: "岩手県" ,
@@ -82,7 +82,7 @@ def create_address
   @user.build_address(@address.attributes)
   @user.save
   sign_in(:user, @user)
-  redirect_to root_path
+  redirect_to 
 end
 
 

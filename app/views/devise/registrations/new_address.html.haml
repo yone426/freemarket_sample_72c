@@ -7,28 +7,28 @@
         .field
           = f.label :zipcode ,class: 'form__label'
           %span 郵便番号
-          = = f.text_field :zipcode, autofocus: true, autocomplete: "zipcode",class:'form__field'
+          = f.text_field :zipcode, autofocus: true, autocomplete: "zipcode",class:'form__field'
 
         .field
           = f.label :prefectures ,class: 'form__label'
           %span 都道府県
           %br/
-          = = f.select :prefectures,@todouhuken, autocomplete: "current-password",class:'form__select'
+          =f.select :prefectures, autocomplete: "current-password",class:'form__select'
 
         .field
-          = f.label :municiplities ,class: 'form__label'
+          = f.label :municipalities ,class: 'form__label'
           %span 市町村
-          = = f.text_field :municiplities, autofocus: true, autocomplete: "municiplities",class:'form__field'
+          =f.text_field :municipalities,  autocomplete: "municipalities",class:'form__field'
 
         .field
           = f.label :address ,class: 'form__label'
           %span 番地
-          = = f.text_field :municiplities, autofocus: true, autocomplete: "municiplities",class:'form__field'
+          = f.text_field :address,  autocomplete: "address",class:'form__field'
 
         .field
-          = f.label :address ,class: 'form__label'
-          %span 番地
-          = = f.text_field :municiplities, autofocus: true, autocomplete: "municiplities",class:'form__field'
+          = f.label :building ,class: 'form__label'
+          %span 建物
+          = f.text_field :building,  autocomplete: "building",class:'form__field'
 
         
 
