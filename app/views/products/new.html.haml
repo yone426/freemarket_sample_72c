@@ -11,7 +11,11 @@
         .ten
           %p最大10枚までアップロードできます
         
-        = f.file_field :image, class:"image_form"
+          -# = f.file_field :image, class:"image_form"
+          .content
+            = f.fields_for :images do |i|
+              = i.file_field :src
+
           
 
       .exhibit__all__name

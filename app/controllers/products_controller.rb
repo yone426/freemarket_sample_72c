@@ -1,16 +1,21 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.includes(:images).order('created_at DESC')
   end
 
   def new
     @product = Product.new
+    @product.images.new
   end
 
   def create
-    @product = Product.create(product_params)
-    redirect_to root_path
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -31,6 +36,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate)
+      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
     end
 end
