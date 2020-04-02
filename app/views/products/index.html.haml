@@ -19,9 +19,9 @@
           = link_to "ブランド","#", class: "brand"
       .header__box__various__right
         .header__box__various__right__login
-          = link_to "ログイン","#", class: "login"
+          = link_to "ログイン",new_user_session_path, class: "login"
         .header__box__various__right__sign_up
-          = link_to "新規会員登録","#", class: "sign_up"
+          = link_to "新規会員登録",new_user_registration_path, class: "sign_up"
 .main
   .image
     = image_tag asset_path("pict/bg-mainVisual-pict_pc.jpg"), width: "100%", height: "550px"

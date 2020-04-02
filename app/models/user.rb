@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :products 
   has_many :comments
   has_many :likes
-  has_one :addresses
-  has_one :cards
+  has_one :addresse
+  has_one :card
+
+  validates :name,:email,:nickname,:fullname,:fullname_katakana,:phone_number,:birthday, presence: true
+
+
+
 end
