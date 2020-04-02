@@ -183,7 +183,7 @@
       .brand__box__list
         .product
           .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+            -# = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'),"/products/#{products.id}", class: 'photo'
           .product__body
             .product__body__name
               sample
@@ -215,7 +215,7 @@
       .brand__box__list
         .product
           .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), method: :get, class: 'photo'
           .product__body
             .product__body__name
               sample
@@ -223,7 +223,7 @@
               .price
                 priceless
               .star
-                ★
+
                 .star__like
                   0
             .product__body__tax

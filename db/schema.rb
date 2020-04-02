@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_103949) do
     t.string "name", null: false
     t.string "details", null: false
     t.string "categories", null: false
+    t.string "image", null: false
     t.integer "price", null: false
     t.string "condition", null: false
     t.string "exhibition", null: false
