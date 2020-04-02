@@ -10,11 +10,13 @@
           %span.red 必須
         .ten
           %p最大10枚までアップロードできます
-        
-          -# = f.file_field :image, class:"image_form"
-          .content
-            = f.fields_for :images do |i|
-              = i.file_field :src
+          = f.fields_for :images do |image|      
+            = render 'form', f: image
+
+
+
+
+            
 
           
 

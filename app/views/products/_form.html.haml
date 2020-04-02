@@ -1,3 +1,7 @@
--# .content
--#   = f.fields_for :images do |i|
--#     = i.file_field :src
+#image-box
+  -# = f.file_field :src
+  .js-file_group{"data-index" => "#{f.index}"}
+    = f.file_field :src, class: 'js-file'
+    %span.js-remove 削除
+
+  
