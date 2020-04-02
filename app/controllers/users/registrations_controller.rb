@@ -22,7 +22,6 @@ def create  #1ページ目で入力した情報のバリデーションチェッ
   session["devise.regist_data"] = {user: @user.attributes}
   session["devise.regist_data"][:user]["password"] = params[:user][:password]
   @address = @user.build_address
-
   render :new_address
 end
 
@@ -35,14 +34,9 @@ def create_address
     render :new_address and return
   end
   @user.build_address(@address.attributes)
- 
   @user.save
   sign_in(:user, @user)
-  
   redirect_to root_path
-  
- 
-  
 end
 
 

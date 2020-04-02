@@ -17,11 +17,19 @@
           = link_to "カテゴリー","#", class: "categories"
         .header__box__various__left__brand
           = link_to "ブランド","#", class: "brand"
-      .header__box__various__right
-        .header__box__various__right__login
-          = link_to "ログイン",new_user_session_path, class: "login"
-        .header__box__various__right__sign_up
-          = link_to "新規会員登録",new_user_registration_path, class: "sign_up"
+      - if user_signed_in?
+        .header__box__various__right
+          .header__box__various__right__login
+            = link_to current_user.fullname, user_path(current_user.id), class: "login"
+          .header__box__various__right__sign_up
+            = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "sign_up"
+      - else      
+        .header__box__various__right
+          .header__box__various__right__login
+            = link_to "ログイン",new_user_session_path, class: "login"
+          .header__box__various__right__sign_up
+            = link_to "新規会員登録",new_user_registration_path, class: "sign_up"
+        
 .main
   .image
     = image_tag asset_path("pict/bg-mainVisual-pict_pc.jpg"), width: "100%", height: "550px"
