@@ -1,62 +1,97 @@
-// 購入確認ページ
-// とりあえずeditでやってます。
+.exhibit
+  .exhibit__title
+    = link_to image_tag(asset_path('logo/logo.png'), class: 'merucari'), root_path
+  .exhibit__all
+    = form_with(model: @product, local: true) do |f|
 
-.purchase-confirmation-page
-  .header
-    = link_to image_tag asset_path('logo/logo-white.png'), class: 'header__logo'
-  .main 
-    .main__contents
-      .main__contents__head
-        %p 購入内容の確認
-      .main__contents__item-info
-        .main__contents__item-info__image
-          = image_tag asset_path('icon/icon_brand.png'), size: "80x80", class: 'main__item__image__small-image'
-        .main__contents__item-info__detail
-          .name
-            %p 黒い子供用の靴
-          .price
-            %p ¥22,000（税込） 送料込み
-      .payment-amount
-        .payment-amount__top
-          .payment-amount__top__text
-            %p 支払い金額
-          .payment-amount__top__price
-            %p ¥700
+      .exhibit__all__images
+        .left_text
+          %span.fat 出品画像 
+          %span.red 必須
+        .ten
+          %p最大10枚までアップロードできます
+        
+        = f.file_field :image, class:"image_form"
+          
 
-        .payment-amount__point-text
-          %p ポイントを使用 (所持ポイント: P0)
+      .exhibit__all__name
+        .left_text
+          %span.fat 商品名 
+          %span.red 必須
+        .form
+          = f.text_field :name, placeholder:"40字まで" , class:"name_form"
 
-      .payment-method
-        .payment-method__top
-          .payment-method__top__left
-            %p 支払い方法
-          .payment-method__top__right
-            %p 変更する
-        .card-infomation
-          %p クレジットカード
-          .number
-            %p ************1234
-          .date
-            %p 有効期限 01 / 23
-          .icon
-            -# FontAwsome
-      .shipping-adress
-        .shipping-adress__top
-          .shipping-adress__top__left
-            %p 配送先
-          .shipping-adress__top__right
-            %p 変更する
-        .postal-code
-          %p 〒000-0000
-        .adress
-          %p 大阪府大阪市中央区中央３−３−３スーパーマンション５０５
-        .name
-          %p 山田太郎
+      .exhibit__all__details
+        .left_text
+          %span.fat 商品の説明
+          %span.red 必須
+        .form
+        = f.text_area :details,placeholder:"傷が少しあります" , class:"name_form"
 
-      .bottom-content
-        .attention-text
-          %p 郵便局/コンビニ受取をご希望の方は、購入後、取引画面から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
-        .purchase-btn
-          %p 購入する
-  
-  .footer
+      .exhibit__all__example
+        .example_name
+          商品の詳細
+        .exhibit__all__example__categories
+          .left_text
+            %span.fat カテゴリー
+            %span.red 必須
+          .form
+            = f.text_field :categories, class:"name_form"
+        .exhibit__all__example__condtion
+          .left_text
+            %span.fat 商品の状態
+            %span.red 必須
+          .form  
+            = f.text_field :condition, class:"name_form"
+
+      .exhibit__all__send
+        .send_name
+          配送について
+        .exhibit__all__send__money
+          .left_text
+            %span.fat 配送料の負担
+            %span.red 必須
+          .form  
+            = f.text_field :exhibition, class:"name_form"
+        .exhibit__all__send__area
+          .left_text
+            %span.fat 発送元の地域
+            %span.red 必須
+          .form  
+            = f.text_field :shippingarea, class:"name_form"
+        .exhibit__all__send__date
+          .left_text
+            %span.fat 発送までの日数
+            %span.red 必須
+          .form  
+            = f.text_field :shippingdate, class:"name_form"
+
+      .exhibit__all__price
+        %p価格（¥300〜9,999,999）
+        .price_between
+          .left_text
+            %span.fat 販売価格
+            %span.red 必須
+          .form      
+            %span.red ¥
+            = f.number_field :price, class:"name_form"
+        .fee    
+          %p#tax 販売手数料（10%）
+          %p#tax -
+        .profit
+          %p#tax 販売利益
+          %p#tax -  
+
+
+
+      .exhibit__all__decide
+        .out
+          = f.submit "出品する",class: "out_button" do
+            = "出品する"
+        .save
+          = link_to "削除する", "/products/#{@product.id}",method: :delete, class: "postManage__delete"
+        .back
+          = link_to type: "submit",class: "out_button" do
+            = "もどる"
+      
+  .exhibit__footer
