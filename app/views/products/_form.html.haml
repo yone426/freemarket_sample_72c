@@ -1,0 +1,7 @@
+#image-box
+  -# = f.file_field :src
+  .js-file_group{"data-index" => "#{f.index}"}
+    = f.file_field :src, class: 'js-file'
+    %span.js-remove 削除
+
+  
