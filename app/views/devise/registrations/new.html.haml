@@ -4,7 +4,8 @@
   .signup_wrapper__form
     %h2.title 新規登録
     .form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    
+      = form_for(@user,url: user_registration_path) do |f|
         = render "devise/shared/error_messages", resource: resource
         .field
           = f.label :nickname  ,class: 'form__label' 
@@ -20,13 +21,13 @@
 
         .field
           - f.label :password ,class: 'form__label'
-          %span  パスワード
+          %span  パスワード(7文字以上)
          
           = f.password_field :password, autocomplete: "new-password",class:'form__field',required: true
 
         .field
           - f.label :password_confirmation,class: 'form__label'
-          %span パスワード（確認用）
+          %span パスワード（確認用 7文字以上）
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password",required: true,class:'form__field'
 
@@ -52,13 +53,14 @@
           - f.label :birthday ,class:'form__label'
           %span 誕生日
           %br/
-          = f.date_field :birthday,  autocomplete: "birthday",required: true,class:'form__field'
+         
+          = f.date_select :birthday,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)  ,required: true,class:'form__field'
 
         
         
         
 
         .actions
-          = f.submit "保存",class:'actions__submit'
+          = f.submit "もう少し",class:'actions__submit'
       = link_to 'ログインページ', new_user_session_path,class:'form__link'
       

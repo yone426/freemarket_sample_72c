@@ -1,56 +1,88 @@
+.header
+  .header__box
+    .header__box__form
+      .header__box__form__icon
+        = link_to image_tag asset_path('logo/logo.png'), class: 'icon'
+      .header__box__form__box
+        = form_with(model: @post) do |form|
+          = form.text_field :title , class: "form__text"
+          
+      .header__box__form__search
+        = form_with(model: @post) do |form|
+          = button_tag type: 'submit', class: "submit" do
+            = image_tag asset_path("icon/icon-search 1.png"), class: "search-icon" 
+    .header__box__various
+      .header__box__various__left
+        .header__box__various__left__categories
+          = link_to "カテゴリー","#", class: "categories"
+        .header__box__various__left__brand
+          = link_to "ブランド","#", class: "brand"
+      .header__box__various__right
+        .header__box__various__right__login
+          = link_to "ログイン","#", class: "login"
+        .header__box__various__right__sign_up
+          = link_to "新規会員登録","#", class: "sign_up"
 .show-contents 
   .item
     .item__contents
       .item__contents__name
-        商品名
+        = @product.name
       .content
         .content__left
           .photo-main
+            = image_tag "#{@images[0].src}", class: "photo1"
           .photo-list
-            .photo-one
             .photo-two
+              = image_tag "#{@images[1].src}", class: "photo2"
             .photo-three
+              = image_tag "#{@images[2].src}", class: "photo3"
+            .photo-four
+              = image_tag "#{@images[3].src}", class: "photo4"
         .content__table
           %table
             %tr
               %th 出品者
               %td
-                = link_to "出品者名","#"
+                = link_to "@product.user.nickname","ユーザーページ"
             %tr
               %th カテゴリー
               %td 
-                = link_to "レディース","#"
-            %tr
-              %th ブランド
-              %td　
+                = link_to @product.categories,"カテゴリー一覧"
             %tr
               %th 商品状態
-              %td 新品
+              %td 
+                = @product.condition
             %tr
-              %th 配送料負担
-              %td 送料込み
-            %tr
-              %th 配送方法
-              %td 普通郵便
+              %th 出品状態
+              %td 
+                = @product.exhibition
             %tr
               %th 配送元の地域
-              %td 東京都
+              %td 
+                = @product.shippingarea
             %tr
               %th 配送日の目安
-              %td ４〜７日
+              %td 
+                = @product.shippingdate
         .price 
           %span.price__letter
-            ¥3,200
+            ¥
+            = @product.price
           %span.price__tax
             (税込)
           %span.price__shipping
             送料込み
-        .buy-btn
-          = link_to "購入画面に進む","#"
+        .choice-btn
+          .edit-btn
+          - if user_signed_in? && current_user.id == @product.user_id
+            = link_to "商品編集画面に進む","#"
+          - else
+          .buy-btn
+            = link_to "購入画面に進む","#"
         .item-explain
           %p.item-explain__inner
-            %h2新品の頂き物です
-            %h2中と外に黒いミニポーチが1つずつあります
+            %h2
+              = safe_join(@product.details.split("\n"),tag(:br))
         .item-btn
           .item-btn__left
             = link_to "♡いいね","#"
@@ -61,8 +93,8 @@
         .comments__area__text
           .message-form
             %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = form_with(model: @post, local: true) do |form|
-              = form.text_area :message, class: "message-text"
+            = form_with(model: @product, local: true) do |form|
+              = form.text_area :comment, class: "message-text"
             .message-submit
               = link_to "コメントする","#"
     %ul.nav-item
@@ -73,12 +105,49 @@
     .icon-box
       %ul.icon-box__list
         %li.list-one
-          = link_to "♡"
+          = link_to "https://www.facebook.com/", class: "contents__btn" do
+            = icon('fab', 'facebook-square')
         %li.list-two
-          = link_to "♦︎"
+          = link_to "https://twitter.com/", class: "contents__btn" do
+            = icon('fab', 'twitter')
         %li.list-three
-          = link_to "☆"
+          = link_to "https://www.instagram.com/", class: "contents__btn" do
+            = icon('fab', 'instagram')
     .user-profile
       .user-contents
         %h2.user-contents__head
           = link_to "ベビーキッズをもっと見る","#"
+.footer
+  .footer-top
+    = image_tag asset_path('pict/bg-appBanner-pict.jpg'), class: 'footer__footer-top__image'
+    %p.first-text だれでもかんたん、人生を変えるフリマアプリ
+    %p.second-text 今すぐ無料ダウンロード！
+    .footer-top__linkbox
+      = link_to image_tag asset_path('logo/logo-white.png'), class: 'footer-top__linkbox__appstore'
+      = link_to image_tag asset_path('logo/logo-white.png'), class: 'footer-top__linkbox__googleplay'
+  .footer-bottom
+    .footer-bottom__contents
+      .footer-bottom__contents__content
+        .content1
+          %h2 FURIMAについて
+          %ul
+            %li 会社概要（運営会社）
+            %li プライバシーポリシー
+            %li FURIMA利用規約
+            %li ポイントに関する特約
+        .content2
+          %h2 FURIMAを見る
+          %ul
+            %li カテゴリー一覧
+            %li ブランド一覧
+        .content3
+          %h2 ヘルプ＆ガイド
+          %ul
+            %li FURIMAガイド
+            %li FURIMAロゴ利用ガイドライン
+            %li お知らせ
+    .footer-bottom__logo
+      = image_tag asset_path('logo/logo-white.png'), class: 'footer-bottom__logo__image1'     
+      .footer-bottom__logo__text
+        %p ©︎ FURIMA
+
