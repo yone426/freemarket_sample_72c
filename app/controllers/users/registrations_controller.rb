@@ -60,7 +60,7 @@ def configure_sign_up_params
 end
 
 def address_params
-  params.require(:address).permit(:zipcode, :address,:prefectures,:municipalities,:building)
+  params.require(:address).permit(:zipcode, :address,:prefectures,:municipalities,:building,:prefecture_id,:city)
 end
 
   # GET /resource/sign_up
