@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :set_product, except: [:index, :new, :create]
+
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -23,7 +25,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
+    
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,6 +43,11 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
+      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src, :_destroy, :id])
     end
+
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
 end
