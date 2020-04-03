@@ -33,7 +33,7 @@
             width: 300px;
             display: flex;
             background-color: blue;
-            .image1 {
+            .photo1 {
               height: 300px;
               width: 300px;
               background-color: burlywood;
@@ -48,11 +48,19 @@
               height: 60px;
               width: 60px;
               background-color: hotpink;
+              .photo2 {
+                height: 60px;
+                width: 60px;
+              }
             }
             .photo-two {
               height: 60px;
               width: 60px;
               background-color: indigo;
+              .photo3 {
+                height: 60px;
+                width: 60px;
+              }
             }
             .photo-three {
               height: 60px;
