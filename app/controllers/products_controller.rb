@@ -23,19 +23,26 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+  end
 
+  def buy #商品確認画面です
   end
 
   def destroy
-
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path
   end
 
   def update
-
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to product_path(@product.id)
   end
 
   private
     def product_params
-      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
+      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes:  [:src, :_destroy, :id])
     end
 end
