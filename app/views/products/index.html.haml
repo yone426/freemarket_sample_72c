@@ -145,7 +145,8 @@
       .picup__box__list
         .product
           .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+            -# 画像を押したら詳細ページにとぶ
+            -# = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
           .product__body
             .product__body__name
               sample
