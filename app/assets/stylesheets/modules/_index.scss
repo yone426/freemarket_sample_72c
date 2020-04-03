@@ -240,7 +240,7 @@
       }
     }
   }
-  .picup{
+  .new_products{
     padding: 100px 0 50px 0;
     background-color: rgb(248, 248, 248);
     &__title{
@@ -258,44 +258,40 @@
       display: flex;
       justify-content: space-between;
       margin: 0 300px;
-      &__list{
-        
-      }
-        .product{
-          background-color: #fff;
-          &__image{
-            .photo{
-            width: 220px;
-            height: 150px;
-            }
-          }
-          &__body{
-            padding: 0 10px;
-            &__name{
-
-            }
-            &__price{
-              justify-content: space-between;
-              display: flex;
-              .price{
-
-              }
-              .star{
-                display: flex;
-                .like{
-
-                }
-              }
-            }
-            &__tax{
-
-            }
+      .product{
+        background-color: #fff;
+        &__image{
+          .photo{
+          width: 220px;
+          height: 150px;
           }
         }
+        &__body{
+          padding: 0 10px;
+          &__name{
+          }
+          &__price{
+            justify-content: space-between;
+            display: flex;
+            .price{
+
+            }
+            .star{
+              display: flex;
+              .like{
+
+              }
+            }
+          }
+          &__tax{
+
+          }
+        }
+      }
     }
 
   }
-  .brand{
+  .pickup_products{
     padding: 100px 0 50px 0;
     background-color: rgb(248, 248, 248);
     &__title{
@@ -313,40 +309,37 @@
       display: flex;
       justify-content: space-between;
       margin: 0 300px;
-      &__list{
-        
-      }
-        .product{
-          background-color: #fff;
-          &__image{
-            .photo{
-            width: 220px;
-            height: 150px;
-            }
-          }
-          &__body{
-            padding: 0 10px;
-            &__name{
-
-            }
-            &__price{
-              justify-content: space-between;
-              display: flex;
-              .price{
-
-              }
-              .star{
-                display: flex;
-                .like{
-                  
-                }
-              }
-            }
-            &__tax{
-
-            }
+      .product{
+        background-color: #fff;
+        &__image{
+          .photo{
+          width: 220px;
+          height: 150px;
           }
         }
+        &__body{
+          padding: 0 10px;
+          &__name{
+
+          }
+          &__price{
+            justify-content: space-between;
+            display: flex;
+            .price{
+
+            }
+            .star{
+              display: flex;
+              .like{
+                
+              }
+            }
+          }
+          &__tax{
+
+          }
+        }
+      }
     }
   }
 }
