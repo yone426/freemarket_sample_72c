@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     delete 'destroy_user_session', to: 'users/sessions#destroy'
 
   end
-  
+ 
   root to: "products#index"
   resources :products
 
