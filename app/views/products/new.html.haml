@@ -10,8 +10,14 @@
           %span.red 必須
         .ten
           %p最大10枚までアップロードできます
-        
-        = f.file_field :image, class:"image_form"
+          = f.fields_for :images do |image|      
+            = render 'form', f: image
+
+
+
+
+            
+
           
 
       .exhibit__all__name
@@ -36,13 +42,14 @@
             %span.fat カテゴリー
             %span.red 必須
           .form
-            = f.text_field :categories, class:"name_form"
+            = f.select :categories, [ ["レディース","レディース"], ["メンズ", "メンズ"], ["キッズ・キッズ", "キッズ・キッズ" ] ,["インテリア","インテリア"]], prompt: "選択してください"
+
         .exhibit__all__example__condtion
           .left_text
             %span.fat 商品の状態
             %span.red 必須
           .form  
-            = f.text_field :condition, class:"name_form"
+            = f.select :condition, [ ["新品","新品"], ["未使用に近い","未使用に近い"], ["やや傷あり", "やや傷あり" ] ,["全体的に傷あり", "全体的に傷あり"]], prompt: "選択してください"
 
       .exhibit__all__send
         .send_name
@@ -52,19 +59,21 @@
             %span.fat 配送料の負担
             %span.red 必須
           .form  
-            = f.text_field :exhibition, class:"name_form"
+            = f.select :exhibition, [ ["送料込み（出品者負担）","送料込み（出品者負担）"], ["着払い（購入者負担）", "着払い（購入者負担）"]], prompt: "選択してください"
+
         .exhibit__all__send__area
           .left_text
             %span.fat 発送元の地域
             %span.red 必須
           .form  
-            = f.text_field :shippingarea, class:"name_form"
+            = f.select :shippingarea, [ ["西日本","西日本"], ["東日本", "東日本"]], prompt: "選択してください"
+
         .exhibit__all__send__date
           .left_text
             %span.fat 発送までの日数
             %span.red 必須
           .form  
-            = f.text_field :shippingdate, class:"name_form"
+            = f.select :shippingdate, [ ["１〜２日","１〜２日"], ["３〜４日い", "３〜４日い"], ["４日以上", "４日以上" ] ], prompt: "選択してください"
 
       .exhibit__all__price
         %p価格（¥300〜9,999,999）
@@ -86,11 +95,9 @@
 
       .exhibit__all__decide
         .out
-          = button_tag type: "submit",class: "out_button" do
-            = "出品する"
+          = f.submit "出品する",class: 'out_button' 
         .save
-          = button_tag type: "submit",class: "save_button" do
-            = "下書きに保存"
+          = f.submit "下書きに保存",class: 'save_button'  
         .back
           = link_to type: "submit",class: "out_button" do
             = "もどる"
