@@ -253,13 +253,14 @@
       font-weight: bold;
       color: #3ccace;
       text-align: center;
+      .new-item-link{
+        text-decoration: none;
+        color:#3ccacd;
+      }
     }
     &__box{
-      display: flex;
-      justify-content: space-between;
-      margin: 0 300px;
+      margin: 0 160px;
       .product{
-        background-color: #fff;
         &__image{
           .photo{
           width: 220px;
@@ -267,24 +268,29 @@
           }
         }
         &__body{
-          padding: 0 10px;
-          &__name{
-          }
-          &__price{
-            justify-content: space-between;
-            display: flex;
-            .price{
-
+          display: flex;
+          &__box{
+            padding: 0 10px;
+            width: 205px;
+            background-color: #fff;
+            &__name{
             }
-            .star{
+            &__price{
+              justify-content: space-between;
               display: flex;
-              .like{
+              .price{
 
               }
-            }
-          }
-          &__tax{
+              .star{
+                display: flex;
+                .like{
 
+                }
+              }
+            }
+            &__tax{
+
+            }
           }
         }
       }
@@ -298,19 +304,21 @@
       text-align: center;
       font-size: 28px;
       font-weight: bold;
+      
     }
     &__sub{
       font-size: 24px;
       font-weight: bold;
       color: #3ccace;
       text-align: center;
+      .mens-item-link{
+        text-decoration: none;
+        color:#3ccacd;
+      }
     }
     &__box{
-      display: flex;
-      justify-content: space-between;
-      margin: 0 300px;
+      margin: 0 160px;
       .product{
-        background-color: #fff;
         &__image{
           .photo{
           width: 220px;
@@ -318,26 +326,30 @@
           }
         }
         &__body{
-          padding: 0 10px;
-          &__name{
-
-          }
-          &__price{
-            justify-content: space-between;
-            display: flex;
-            .price{
-
+          display: flex;
+          &__box{
+            padding: 0 10px;
+            width: 205px;
+            background-color: #fff;
+            &__name{
             }
-            .star{
+            &__price{
+              justify-content: space-between;
               display: flex;
-              .like{
-                
+              .price{
+
+              }
+              .star{
+                display: flex;
+                .like{
+                  
+                }
               }
             }
-          }
-          &__tax{
+            &__tax{
 
-          }
+            }
+          }  
         }
       }
     }
