@@ -13,10 +13,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @product.images
-    @images = Image.includes(:products)
-    @products = Product.includes(:images)
-   
+    @images = @product.images
   end
 
   def edit

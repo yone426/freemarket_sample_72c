@@ -44,7 +44,7 @@
             height: 60px;
             width: 100%;
             display: flex;
-            .photo-one {
+            .photo-two {
               height: 60px;
               width: 60px;
               background-color: hotpink;
@@ -53,7 +53,7 @@
                 width: 60px;
               }
             }
-            .photo-two {
+            .photo-three {
               height: 60px;
               width: 60px;
               background-color: indigo;
@@ -62,10 +62,14 @@
                 width: 60px;
               }
             }
-            .photo-three {
+            .photo-four {
               height: 60px;
               width: 60px;
               background-color: red;
+              .photo4 {
+                height: 60px;
+                width: 60px;
+              }
             }
           }
         }

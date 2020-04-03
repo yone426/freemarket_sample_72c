@@ -29,14 +29,15 @@
         = @product.name
       .content
         .content__left
+          .photo-main
+            = image_tag "#{@images[0].src}", class: "photo1"
           .photo-list
-          - @product.images.each do |image|
-            .photo-main
-              = image_tag "#{image.src}", class: "photo1"
-            .photo-list
-              .photo-one
-              .photo-two
-              .photo-three
+            .photo-two
+              = image_tag "#{@images[1].src}", class: "photo2"
+            .photo-three
+              = image_tag "#{@images[2].src}", class: "photo3"
+            .photo-four
+              = image_tag "#{@images[3].src}", class: "photo4"
         .content__table
           %table
             %tr
