@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.includes(:images).order('created_at DESC')
+    @products = Product.all
   end
 
   def new
     @product = Product.new
     @product.images.new
+
   end
 
   def create
@@ -19,6 +20,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+
+    @product = Product.find(params[:id])
+    @images = @product.images
 
   end
 
@@ -34,8 +38,11 @@ class ProductsController < ApplicationController
 
   end
 
+
+
   private
     def product_params
       params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
     end
+
 end

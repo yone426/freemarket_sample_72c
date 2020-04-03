@@ -31,28 +31,45 @@
           .photo-main {
             height: 300px;
             width: 300px;
-            background-color: green;
             display: flex;
+            background-color: blue;
+            .photo1 {
+              height: 300px;
+              width: 300px;
+              background-color: burlywood;
+            }
           }
           .photo-list {
             background-color: lawngreen;
             height: 60px;
             width: 100%;
             display: flex;
-            .photo-one {
-              height: 60px;
-              width: 60px;
-              background-color: hotpink;
-            }
             .photo-two {
               height: 60px;
               width: 60px;
-              background-color: indigo;
+              background-color: hotpink;
+              .photo2 {
+                height: 60px;
+                width: 60px;
+              }
             }
             .photo-three {
               height: 60px;
               width: 60px;
+              background-color: indigo;
+              .photo3 {
+                height: 60px;
+                width: 60px;
+              }
+            }
+            .photo-four {
+              height: 60px;
+              width: 60px;
               background-color: red;
+              .photo4 {
+                height: 60px;
+                width: 60px;
+              }
             }
           }
         }
@@ -98,17 +115,32 @@
           font-size: 16px;
         }
       }
-      .buy-btn {
-        font-size: 24px;
-        line-height: 60px;
-        display: block;
-        margin-top: 16px;
-        background: #ea352d;
-        font-weight: 600;
-        text-align: center;
-        a {
-          text-decoration: none;
-          color: #fff;
+      .choice-btn {
+        .edit-btn {
+          font-size: 24px;
+          line-height: 60px;
+          display: block;
+          margin-top: 16px;
+          background: blue;
+          font-weight: 600;
+          text-align: center;
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+        .buy-btn {
+          font-size: 24px;
+          line-height: 60px;
+          display: block;
+          margin-top: 16px;
+          background: #ea352d;
+          font-weight: 600;
+          text-align: center;
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
         }
       }
       .item-explain  {
@@ -117,6 +149,27 @@
         font-size: 18px;
         &__inner {
           white-space: pre-wrap;
+          }
+        }
+      .item-btn {
+        padding-top: 25px;
+        display: flex;
+          &__left{
+            width: 50%;
+            a {
+              background-color: peru;
+              text-decoration: none;
+              color: black;
+            }
+          }
+          &__right {
+            text-align: right;
+            width: 50%;
+            a {
+              background-color: powderblue;
+              text-decoration: none;
+              color: royalblue;
+            }
           }
         }
       }
@@ -213,6 +266,19 @@
         margin: 0 8px 8px 0;
         vertical-align: middle;
         text-align: center;
+        a{
+          font-size: 40px;
+          color: #0099e8;
+        }
+      }
+      .list-one {
+        padding: 0 15px;
+      }
+      .list-two {
+        padding: 0 15px;
+      }
+      .list-three {
+        padding: 0 15px;
       }
     }
   }
@@ -243,5 +309,3 @@
     }
   }
 }
-
-
