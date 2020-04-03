@@ -19,6 +19,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true,format: { with: VALID_EMAIL_REGEX }
   validates :password,:password_confirmation, length:{maximum:7}
   validates :fullname, format: {with:FULLNAME}
-  validates :fullname_katakana, format: {with:KATAKANA = /\A[ァ-ヶー－]+\z/}
+  validates :fullname_katakana, format: {with:KATAKANA}
   validates :phone_number,numericality: :only_integer
 end
