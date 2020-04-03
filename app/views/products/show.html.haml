@@ -30,6 +30,7 @@
       .content
         .content__left
           .photo-main
+            = @product.src
           .photo-list
             .photo-one
             .photo-two
@@ -70,7 +71,7 @@
             送料込み
         .choice-btn
           .edit-btn
-          - if user_signed_in? && current_user.id == @post.user_id
+          - if user_signed_in? && current_user.id == @product.user_id
             = link_to "商品編集画面に進む","#"
           - else
           .buy-btn
