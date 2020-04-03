@@ -36,7 +36,7 @@ def create_address
   @user.build_address(@address.attributes)
 
   begin
-  @user.save
+    @user.save
   rescue 
     render :new
   end
