@@ -53,7 +53,8 @@
           - f.label :birthday ,class:'form__label'
           %span 誕生日
           %br/
-          = f.date_field :birthday,  autocomplete: "birthday",required: true,class:'form__field'
+         
+          = f.date_select :birthday,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)  ,required: true,class:'form__field'
 
         
         

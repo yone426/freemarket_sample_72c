@@ -34,7 +34,12 @@ def create_address
     render :new_address and return
   end
   @user.build_address(@address.attributes)
+
+  begin
   @user.save
+  rescue 
+    render :new
+  end
   sign_in(:user, @user)
   redirect_to root_path
 end

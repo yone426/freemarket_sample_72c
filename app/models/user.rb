@@ -20,4 +20,5 @@ class User < ApplicationRecord
   validates :password,:password_confirmation, length:{maximum:7}
   validates :fullname, format: {with:FULLNAME}
   validates :fullname_katakana, format: {with:KATAKANA = /\A[ァ-ヶー－]+\z/}
+  validates :phone_number,numericality: :only_integer
 end
