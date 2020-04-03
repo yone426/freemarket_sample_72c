@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @product.src
   end
 
   def edit
