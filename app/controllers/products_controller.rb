@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  require 'payjp'
+
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
     @pickup_products = Product.where(categories: '猫', status: 0).order("created_at DESC").page(params[:page]).per(5)
@@ -41,7 +43,14 @@ class ProductsController < ApplicationController
 
   end
 
-
+  def purchase
+    Payjp.api_key = "秘密鍵"
+    Payjp::Charge.create(
+      amount: 809, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+  end
 
   private
     def product_params
