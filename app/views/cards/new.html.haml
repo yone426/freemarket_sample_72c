@@ -1,60 +1,81 @@
-.content__title
-  %h2 クレジットカード情報入力
-.content__credit-card
-  .content__credit-card__inner
-    = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| -# createアクションのパスを指定
-      = f.label :カード番号, class: 'label'
-      %span 必須
-      = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
-      .cards-expire
-        = f.label :有効期限, class: 'label'
-        %span 必須
-        %br
-        .cards-expire__wrap
-          = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
-          %span.expire-text 月
-          %br
-        .cards-expire__wrap
-          = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
-          %span.expire-text 年
-      .cards-expire
-        = f.label :セキュリティコード, class: 'label'
-        %span 必須
-        = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
-      .content-bottom#card_token
-        = f.submit '追加する', class: 'content-bottom--add-btn', id: 'token_submit'
+.mypage
+  .mypage__wrraper
+    .side
+      %ul.side__function
+        %li.li_mypage
+          = link_to 'トップページ', root_path ,class: "list"
+        %li 
+          = link_to '出品する', "#",class: "list"
+        %li
+          = link_to '出品状況', "#",class: "list"
+        %li
+          = link_to '購入履歴', "#",class: "list"
+        
+      %p 設定
+      %ul.side__acount
+        
+        %li
+          = link_to '本人情報設定', edit_user_registration_path,class: "list"
+        %li
+          = link_to 'クレジットカード登録', new_card_path,class: "list"
+        %li
+          = link_to 'ログアウト',rogout_users_path,class: "list"
 
--# ↓↓↓ submitボタンを押された時にトークンを作成する処理
+    .content__title
+      %h2 クレジットカード情報入力
+      .content__credit-card
+        .content__credit-card__inner
+          = form_with url: cards_path, method: :post, id: 'charge-form',html: { name: "inputForm" }do |f|
+            = f.label :card_id, class: 'label'
+            %span 必須
+            = f.text_field :card_id, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
+            .cards-expire
+              = f.label :customer_id, class: 'label'
+              %span 必須
+              %br
+              .cards-expire__wrap
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
+                %span.expire-text 月
+                %br
+              .cards-expire__wrap
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
+                %span.expire-text 年
+            .cards-expire
+              = f.label :customer_id, class: 'label'
+              %span 必須
+              = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+            .content-bottom#card_token
+              = f.submit '追加する', class: 'content-bottom--add-btn', id: 'token_submit'
+
 :javascript
   document.addEventListener(
   "DOMContentLoaded", (e) => {
     Payjp.setPublicKey("pk_test_7cc71c15790e0cce7327840d");
-    const btn = document.getElementById('token_submit'); //IDがtoken_submitの場合に取得されます
-    btn.addEventListener("click", (e) => {//ボタンが押されたときに作動します
-      e.preventDefault();　//ボタンを一旦無効化します
+    const btn = document.getElementById('token_submit'); 
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-      //カード情報生成
+      
       const card = {
-        number: document.getElementById("card_number").value,
+        number: document.getElementById("card_id").value,
         cvc: document.getElementById("cvc").value,
         exp_month: document.getElementById("exp_month").value,
         exp_year: document.getElementById("exp_year").value
-      }; //入力されたデータを取得します。
+      };
 
-      //トークン生成
       Payjp.createToken(card, (status, response) => {
-        if (status === 200) { //成功した場合
-          $("#card_number").removeAttr("name");
+        if (status === 200) { 
+          $("#card_id").removeAttr("name");
           $("#cvc").removeAttr("name");
           $("#exp_month").removeAttr("name");
-          $("#exp_year").removeAttr("name"); //カード情報を自分のサーバにpostせず削除します
+          $("#exp_year").removeAttr("name"); 
           $("#card_token").append(
             $('<input type="hidden" name="payjp-token">').val(response.id)
-          ); //トークンを送信できるように隠しタグを生成
+          ); 
           document.inputForm.submit();
-          alert("登録が完了しました"); //確認用
+          alert("登録が完了しました"); 
         } else {
-          alert("カード情報が正しくありません。"); //確認用
+          alert("カード情報が正しくありません。"); 
         }
       });
     });

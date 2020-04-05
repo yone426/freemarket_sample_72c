@@ -1,10 +1,13 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
+  def index
+    redirect_to new_path(current_user.id)
+  end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
     card = Card.where(user_id: current_user.id).first
-    redirect_to action: "index" if card.present?
+    redirect_to user_path(current_user.id) if card.present?
   end
 
   def create #PayjpとCardのデータベースを作成
