@@ -10,9 +10,16 @@ Rails.application.routes.draw do
 
   end
  
-  root to: "products#index"
-  resources :products
+  root to: "products#index" 
+
+  resources :products do
+    collection do
+      post 'purchase'
+    end
+  end
   resources :images
+  resources :cards
+
 
   resources :users do
     collection do
