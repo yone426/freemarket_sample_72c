@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   end
  
   root to: "products#index"
-  resources :products
+  resources :products do 
+    collection do 
+      get "category"
+    end
+  end
   resources :users do
     collection do
       get "rogout"

@@ -1,0 +1,14 @@
+.box
+  .parent
+    - id
+    = parent.name
+  -parent.children.each do |child|
+    .parent__child
+      =child.name
+                
+      .parent__child__grandchild          
+        -child.children.each_with_index do |grandchild,id|
+          .parent__child__grandchild__cont
+            = link_to grandchild.name,"#",class:'link'
+            -id
+            -grandchild.name

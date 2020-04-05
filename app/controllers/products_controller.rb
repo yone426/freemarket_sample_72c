@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+  
   end
 
   def new
@@ -36,6 +37,10 @@ class ProductsController < ApplicationController
 
   def update
 
+  end
+
+  def category 
+    @parents = Category.all.where(ancestry: nil).limit(13)
   end
 
 
