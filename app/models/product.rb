@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
   belongs_to :user ,optional: true
+  belongs_to :category
+  # has_many :main_categories  main_categoriesというモデルは存在しない？
   
   has_many :images
-  has_many :main_categories
   has_many :comments
   has_many :likes
   accepts_nested_attributes_for :images, allow_destroy: true
