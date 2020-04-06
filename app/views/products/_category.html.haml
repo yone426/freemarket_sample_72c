@@ -1,7 +1,7 @@
 .box
-  .parent
+  .parent{ id:"section#{id}"}
     - id
-    = parent.name
+    = parent.name 
   -parent.children.each do |child|
     .parent__child
       =child.name
