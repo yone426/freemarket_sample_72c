@@ -30,20 +30,20 @@
       .content
         .content__left
           .photo-main
-            = image_tag "#{@images[0].src}", class: "photo1"
+            = image_tag @images.first.src.url, class: "photo1"
           .photo-list
             .photo-two
-              = image_tag "#{@images[1].src}", class: "photo2"
+              -# = image_tag "#{@images[1].src}", class: "photo2"
             .photo-three
-              = image_tag "#{@images[2].src}", class: "photo3"
+              -# = image_tag "#{@images[2].src}", class: "photo3"
             .photo-four
-              = image_tag "#{@images[3].src}", class: "photo4"
+              -# = image_tag "#{@images[3].src}", class: "photo4"
         .content__table
           %table
             %tr
               %th 出品者
               %td
-                = link_to "@product.user.nickname","ユーザーページ"
+                = link_to @product.user.nickname,"ユーザーページ"
             %tr
               %th カテゴリー
               %td 
