@@ -29,8 +29,20 @@
         = @product.name
       .content
         .content__left
+          -# - @images.each_with_index do | i , image|
+          -#   - if i == 0
+          -#     .photo-main
+          -#       = image_tag 'image/1.png', class: "photo1"
+          -#   - else
+          -#     .photo-sub
+          -#       = image_tag 'image/1.png', class: "photo1"
+        .photo-main
+            = image_tag 'image/1.png', class: "photo1"
+        .photo-list
+          -@images.each do |image|
+          
           .photo-main
-            = image_tag @images.first.src.url, class: "photo1"
+            = image_tag 'image/1.png', class: "photo1"
           .photo-list
             .photo-two
               -# = image_tag "#{@images[1].src}", class: "photo2"
