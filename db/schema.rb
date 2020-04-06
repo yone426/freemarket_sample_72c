@@ -64,10 +64,11 @@ ActiveRecord::Schema.define(version: 2020_04_03_111145) do
     t.string "name", null: false
     t.string "details", null: false
     t.string "categories", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.string "condition", null: false
     t.string "exhibition", null: false
     t.string "shippingdate", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "image_id"

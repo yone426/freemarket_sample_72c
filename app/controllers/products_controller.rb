@@ -18,6 +18,14 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+
+    begin
+      @product.save
+    rescue 
+      render :new
+    end
+    
+
   end
 
   def show

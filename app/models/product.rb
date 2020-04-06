@@ -7,5 +7,5 @@ class Product < ApplicationRecord
   has_many :likes
   belongs_to_active_hash :prefecture
   accepts_nested_attributes_for :images, allow_destroy: true
-  validates :name, :price, :details, :categories, :condition, :exhibition, :prefecture_id, :shippingdate, presence: true
+  validates :name, :price, :details, :categories, :condition, :exhibition, :shippingdate,:prefecture_id, presence: true
 end

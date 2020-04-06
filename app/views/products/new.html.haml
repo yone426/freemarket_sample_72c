@@ -67,7 +67,6 @@
             %span.red 必須
           .form  
             = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
-            -# = f.select :shippingarea, [ ["西日本","西日本"], ["東日本", "東日本"]], prompt: "選択してください"
 
         .exhibit__all__send__date
           .left_text
