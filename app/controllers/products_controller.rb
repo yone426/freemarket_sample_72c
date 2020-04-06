@@ -3,12 +3,16 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
 
   def index
-    @products = Product.includes(:images).order('created_at DESC')
+    @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
+    @pickup_products = Product.where(categories: 'メンズ', status: 0).order("created_at DESC").page(params[:page]).per(5)
+
+    @products = Product.all
   end
 
   def new
     @product = Product.new
     @product.images.new
+
   end
 
   def create
@@ -30,6 +34,10 @@ class ProductsController < ApplicationController
 
   def show
 
+    @product = Product.find(params[:id])
+    @image = @product.images.first
+    @images = @product.images.drop(1)
+
   end
 
   def edit
@@ -49,6 +57,8 @@ class ProductsController < ApplicationController
 
   end
 
+
+
   private
     def product_params
       params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate,:prefecture_id,:city, images_attributes: [:src, :_destroy, :id])
@@ -57,5 +67,6 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+
 
 end

@@ -240,7 +240,7 @@
       }
     }
   }
-  .picup{
+  .new_products{
     padding: 100px 0 50px 0;
     background-color: rgb(248, 248, 248);
     &__title{
@@ -253,26 +253,27 @@
       font-weight: bold;
       color: #3ccace;
       text-align: center;
+      .new-item-link{
+        text-decoration: none;
+        color:#3ccacd;
+      }
     }
     &__box{
-      display: flex;
-      justify-content: space-between;
-      margin: 0 300px;
-      &__list{
-        
-      }
-        .product{
-          background-color: #fff;
-          &__image{
-            .photo{
-            width: 220px;
-            height: 150px;
-            }
+      margin: 0 160px;
+      .product{
+        &__image{
+          .photo{
+          width: 220px;
+          height: 150px;
           }
-          &__body{
+        }
+        &__body{
+          display: flex;
+          &__box{
             padding: 0 10px;
+            width: 205px;
+            background-color: #fff;
             &__name{
-
             }
             &__price{
               justify-content: space-between;
@@ -292,42 +293,45 @@
             }
           }
         }
+      }
     }
 
   }
-  .brand{
+  .pickup_products{
     padding: 100px 0 50px 0;
     background-color: rgb(248, 248, 248);
     &__title{
       text-align: center;
       font-size: 28px;
       font-weight: bold;
+      
     }
     &__sub{
       font-size: 24px;
       font-weight: bold;
       color: #3ccace;
       text-align: center;
+      .mens-item-link{
+        text-decoration: none;
+        color:#3ccacd;
+      }
     }
     &__box{
-      display: flex;
-      justify-content: space-between;
-      margin: 0 300px;
-      &__list{
-        
-      }
-        .product{
-          background-color: #fff;
-          &__image{
-            .photo{
-            width: 220px;
-            height: 150px;
-            }
+      margin: 0 160px;
+      .product{
+        &__image{
+          .photo{
+          width: 220px;
+          height: 150px;
           }
-          &__body{
+        }
+        &__body{
+          display: flex;
+          &__box{
             padding: 0 10px;
+            width: 205px;
+            background-color: #fff;
             &__name{
-
             }
             &__price{
               justify-content: space-between;
@@ -345,8 +349,9 @@
             &__tax{
 
             }
-          }
+          }  
         }
+      }
     }
   }
 }
