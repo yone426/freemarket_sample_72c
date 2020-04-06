@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
   def index
-    redirect_to new_path(current_user.id)
+    redirect_to new_user_path(current_user.id)
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
