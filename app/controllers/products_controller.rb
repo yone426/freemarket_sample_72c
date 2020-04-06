@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
     @product = Product.find(params[:id])
     @image = @product.images.first
-    @images = @product.images.dorp(1)
+    @images = @product.images.drop(1)
 
   end
 
