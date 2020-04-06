@@ -1,27 +1,4 @@
-.header
-  .header__box
-    .header__box__form
-      .header__box__form__icon
-        = link_to image_tag asset_path('logo/logo.png'), class: 'icon'
-      .header__box__form__box
-        = form_with(model: @post) do |form|
-          = form.text_field :title , class: "form__text"
-          
-      .header__box__form__search
-        = form_with(model: @post) do |form|
-          = button_tag type: 'submit', class: "submit" do
-            = image_tag asset_path("icon/icon-search 1.png"), class: "search-icon" 
-    .header__box__various
-      .header__box__various__left
-        .header__box__various__left__categories
-          = link_to "カテゴリー","#", class: "categories"
-        .header__box__various__left__brand
-          = link_to "ブランド","#", class: "brand"
-      .header__box__various__right
-        .header__box__various__right__login
-          = link_to "ログイン","#", class: "login"
-        .header__box__various__right__sign_up
-          = link_to "新規会員登録","#", class: "sign_up"
+= render partial: 'top_header'
 .show-contents 
   .item
     .item__contents
@@ -117,37 +94,4 @@
       .user-contents
         %h2.user-contents__head
           = link_to "ベビーキッズをもっと見る","#"
-.footer
-  .footer-top
-    = image_tag asset_path('pict/bg-appBanner-pict.jpg'), class: 'footer__footer-top__image'
-    %p.first-text だれでもかんたん、人生を変えるフリマアプリ
-    %p.second-text 今すぐ無料ダウンロード！
-    .footer-top__linkbox
-      = link_to image_tag asset_path('logo/logo-white.png'), class: 'footer-top__linkbox__appstore'
-      = link_to image_tag asset_path('logo/logo-white.png'), class: 'footer-top__linkbox__googleplay'
-  .footer-bottom
-    .footer-bottom__contents
-      .footer-bottom__contents__content
-        .content1
-          %h2 FURIMAについて
-          %ul
-            %li 会社概要（運営会社）
-            %li プライバシーポリシー
-            %li FURIMA利用規約
-            %li ポイントに関する特約
-        .content2
-          %h2 FURIMAを見る
-          %ul
-            %li カテゴリー一覧
-            %li ブランド一覧
-        .content3
-          %h2 ヘルプ＆ガイド
-          %ul
-            %li FURIMAガイド
-            %li FURIMAロゴ利用ガイドライン
-            %li お知らせ
-    .footer-bottom__logo
-      = image_tag asset_path('logo/logo-white.png'), class: 'footer-bottom__logo__image1'     
-      .footer-bottom__logo__text
-        %p ©︎ FURIMA
-
+= render partial: 'top_footer'

@@ -1,5 +1,4 @@
 
-
 $(function(){
   $('a[href^="#"]').click(function(){
     //スクロールのスピード
