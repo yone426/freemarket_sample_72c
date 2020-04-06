@@ -44,6 +44,10 @@ class ProductsController < ApplicationController
     @parents = Category.all.where(ancestry: nil).limit(13)
   end
 
+  def search
+    
+  end
+
 
 
   private

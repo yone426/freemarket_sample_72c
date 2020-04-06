@@ -27,3 +27,17 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
+
+$('#parent_form').on('change', function(){
+  let parentValue = document.getElementById("parent-form").value;
+
+  $.ajax({
+    url: '/products/search',
+    type: "GET",
+    data: {
+      parent_id: parentValue // 親ボックスの値をparent_idという変数にする。
+    },
+    dataType: 'json'
+    //json形式を指定
+  })
+})
