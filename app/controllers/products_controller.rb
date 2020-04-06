@@ -31,15 +31,16 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
   end
 
   def update
-    @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to product_path(@product.id)
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
