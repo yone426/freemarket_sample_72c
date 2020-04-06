@@ -5,8 +5,8 @@
     .categorys
       -@parents.each_with_index do |parent,id|
         .categorys__content
-          - id
-          =parent.name
+          
+          = link_to "#{parent.name}","#",class: "categorys__content__",id:"send_to_#{id}"
     .boxs
       -@parents.each_with_index do |parent,id|
         =render partial: 'category', locals: {parent: parent,id: id}

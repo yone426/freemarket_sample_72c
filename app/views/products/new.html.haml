@@ -42,7 +42,8 @@
             %span.fat カテゴリー
             %span.red 必須
           .form
-            = f.select :categories, [ ["レディース","レディース"], ["メンズ", "メンズ"], ["キッズ・キッズ", "キッズ・キッズ" ] ,["インテリア","インテリア"]], prompt: "選択してください"
+            = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択してください"}, name: 'product[category_ids][]'
+            -# = f.select :categories, [ ["レディース","レディース"], ["メンズ", "メンズ"], ["キッズ・キッズ", "キッズ・キッズ" ] ,["インテリア","インテリア"]], prompt: "選択してください"
 
         .exhibit__all__example__condtion
           .left_text

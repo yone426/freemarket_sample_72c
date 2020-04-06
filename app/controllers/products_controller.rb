@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+    @parents = Category.all.where(ancestry: nil).limit(13)
 
   end
 
