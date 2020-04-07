@@ -16,8 +16,7 @@
       
         .header__box__various__left__categories
           = link_to "カテゴリ一から探す",category_products_path, class: "categories"
-        .header__box__various__left__brand
-          = link_to "ブランド","#", class: "brand"
+        
       - if user_signed_in?
         .header__box__various__right
           .header__box__various__right__login

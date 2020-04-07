@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :set_category, only: [:new]
-  before_action :set_product, except: [:index, :new, :create]
+  # before_action :set_product, except: [:index, :new, :create]
 
 
   def index
