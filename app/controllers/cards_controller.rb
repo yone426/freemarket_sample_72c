@@ -1,8 +1,12 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
-  def index
-    redirect_to new_user_path(current_user.id)
+  def index #CardのデータをPayjpに送って情報を取り出す
+    if @card.present?
+      Payjp.api_key = "sk_test_141de37a30dc59130b757882"
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
@@ -32,6 +36,16 @@ class CardsController < ApplicationController
     end
   end
 
+  def destroy 
+    Payjp.api_key = "sk_test_141de37a30dc59130b757882"
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    customer.delete
+    if @card.destroy #削除に成功した時にポップアップを表示します。
+      redirect_to action: "index", notice: "削除しました"
+    else #削除に失敗した時にアラートを表示します。
+      redirect_to action: "index", alert: "削除できませんでした"
+    end
+  end
   private
 
   def set_card
