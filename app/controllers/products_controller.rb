@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
 
+
+
+  require 'payjp'
+
+
   before_action :set_category, only: [:new]
   before_action :set_product, except: [:index, :new, :create]
 
@@ -56,6 +61,16 @@ class ProductsController < ApplicationController
 
   end
 
+
+  def purchase
+    Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
+    Payjp::Charge.create(
+      amount: 700, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      currency: 'jpy'
+    )
+  end
+
   def category 
     @parents = Category.all.where(ancestry: nil).limit(13)
   end
@@ -69,7 +84,6 @@ class ProductsController < ApplicationController
       end
     end
   end
-
 
 
   private
