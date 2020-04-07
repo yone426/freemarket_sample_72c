@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, except: [:index, :new, :create, 
+  before_action :set_product, except: [:index, :new, :create]
 
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-
   end
 
   def create
@@ -35,6 +34,7 @@ class ProductsController < ApplicationController
 
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def buy #商品確認画面です
@@ -46,15 +46,15 @@ class ProductsController < ApplicationController
   end
 
 
-    def update
-      if @product.update(product_params)
-        redirect_to root_path
-      else
-        render :edit
-      end
+  def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
     end
-    render :edit
- 
+  end
+  render :edit
+
 
 
 
