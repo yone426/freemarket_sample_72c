@@ -1,0 +1,15 @@
+=render partial: 'top_header'
+.categorywrapper
+  .categorywrapper__main
+    %h1 カテゴリー一覧
+    .categorys
+      -@parents.each_with_index do |parent,id|
+        .categorys__content
+          
+          = link_to "#{parent.name}","#section#{id}",class: "sent"
+    .boxs
+      -@parents.each_with_index do |parent,id|
+        =render partial: 'category', locals: {parent: parent,id: id}
+
+
+=render partial: 'top_footer'

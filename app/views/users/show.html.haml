@@ -5,7 +5,7 @@
         %li.li_mypage
           = link_to 'トップページ', root_path ,class: "list"
         %li 
-          = link_to '出品する', "#",class: "list"
+          = link_to '出品する', new_product_path,class: "list"
         %li
           = link_to '出品状況', "#",class: "list"
         %li
@@ -17,7 +17,7 @@
         %li
           = link_to '本人情報設定', edit_user_registration_path,class: "list"
         %li
-          = link_to 'クレジットカード登録', new_user_path,class: "list"
+          = link_to 'クレジットカード', new_card_path,class: "list"
         %li
           = link_to 'ログアウト',rogout_users_path,class: "list"
 
@@ -25,7 +25,8 @@
       .main__top
         = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
         .main__top__name
-          %span naoya
+          %span 
+            =current_user.nickname
         .main__top__sell
           %span 出品数
       .main__button

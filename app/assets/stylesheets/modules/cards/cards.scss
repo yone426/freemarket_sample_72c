@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content__title {
+  font-size: 18px;
+  padding: 8px 100px;
+  h2 {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+}
+
+.input-number {
+  width: 280px;
+}
+
+.content-bottom--add-btn {
+  width: 285px;
+  background-color: red;
+  color: white;
+}
