@@ -80,7 +80,7 @@ $('#parent-form').on('change', function(){
     
     let opt1 = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
       let opt = opt1.join('');
-      console.log(opt);
+      
       let tako = `<option value="">選択してください</option>
       ${opt}`;
       let h = `<select name="" id="child-form" selected>${tako} </select>`; //colection_selectのとこ
@@ -121,7 +121,7 @@ $(document).on('change','#child-form', function(){
         
         let opt1 = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
         let opt = opt1.join('');
-        console.log(opt);
+  
         let tako = `<option value="">選択してください</option>
         ${opt}`;
         let h = `<select name="product[category_id]" id="grandchild-form" selected>${tako} </select>`; //colection_selectのとこ
