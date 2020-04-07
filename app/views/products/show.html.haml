@@ -24,7 +24,12 @@
             %tr
               %th カテゴリー
               %td 
-                = link_to @product.categories,"カテゴリー一覧"
+                
+                = link_to @product.category.root.name,"#"
+                %br/
+                = link_to @product.category.parent.name,"#"
+                %br/
+                = link_to @product.category.name,"#"
             %tr
               %th 商品状態
               %td 
