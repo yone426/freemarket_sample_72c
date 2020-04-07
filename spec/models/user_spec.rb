@@ -42,8 +42,6 @@ describe User do
     user = build(:user)
     expect(user).to be_valid
   end
-
-
   end
 
 
@@ -55,10 +53,4 @@ describe User do
     expect(another_user.errors[:email]).to include("は既に使用されています。")
   end
 end
-
-
-
-
-
-  
 end

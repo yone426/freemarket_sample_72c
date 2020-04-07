@@ -41,9 +41,9 @@
           .left_text
             %span.fat カテゴリー
             %span.red 必須
-          .form
-            = f.select :categories, [ ["レディース","レディース"], ["メンズ", "メンズ"], ["キッズ・キッズ", "キッズ・キッズ" ] ,["インテリア","インテリア"]], prompt: "選択してください"
-
+          .form{id: 'formId'}
+            = f.collection_select :category_id, Category.all.where(ancestry: nil).limit(13), :id, :name,{prompt: "選択してください"}, name: '',id: "parent-form",selected:true
+          
         .exhibit__all__example__condtion
           .left_text
             %span.fat 商品の状態

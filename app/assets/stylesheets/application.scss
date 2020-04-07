@@ -1,8 +1,9 @@
 @import "reset";
-@import "modules/edit";
-@import "modules/index";
-@import "modules/new";
-@import "modules/show";
+@import "modules/product/edit";
+@import "modules/product/index";
+@import "modules/product/new";
+@import "modules/product/show";
+@import "modules/product/category";
 @import "modules/user/mypageindex";
 @import "modules/user/signup_new";
 @import "font-awesome-sprockets";
