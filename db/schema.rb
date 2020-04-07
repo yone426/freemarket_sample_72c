@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(version: 2020_04_03_081915) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+#     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,15 +68,17 @@ ActiveRecord::Schema.define(version: 2020_04_03_081915) do
     t.string "name", null: false
     t.string "details", null: false
     t.string "categories", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.string "condition", null: false
     t.string "exhibition", null: false
-    t.string "shippingarea", null: false
     t.string "shippingdate", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
     t.integer "image_id"
+    t.integer "prefecture_id"
+    t.string "city"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,5 +98,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_081915) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
 end

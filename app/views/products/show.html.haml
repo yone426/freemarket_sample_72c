@@ -30,20 +30,16 @@
       .content
         .content__left
           .photo-main
-            = image_tag "#{@images[0].src}", class: "photo1"
+            = image_tag "#{@image.src}", class: "photo-main__main"
           .photo-list
-            .photo-two
-              = image_tag "#{@images[1].src}", class: "photo2"
-            .photo-three
-              = image_tag "#{@images[2].src}", class: "photo3"
-            .photo-four
-              = image_tag "#{@images[3].src}", class: "photo4"
+            - @images.each do |image|
+              .photo-sab
         .content__table
           %table
             %tr
               %th 出品者
               %td
-                = link_to "@product.user.nickname","ユーザーページ"
+                = link_to @product.user.nickname,"ユーザーページ"
             %tr
               %th カテゴリー
               %td 
@@ -151,3 +147,11 @@
       .footer-bottom__logo__text
         %p ©︎ FURIMA
 
+
+  -# - @images.each_with_index do | i , image|
+          -#   - if i == 0
+          -#     .photo-main
+          -#       = image_tag 'image/1.png', class: "photo1"
+          -#   - else
+          -#     .photo-sub
+          -#       = image_tag 'image/1.png', class: "photo1"
