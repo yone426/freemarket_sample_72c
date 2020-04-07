@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
  
   root to: "products#index"
+  
   resources :products do
     collection do
       get "buy"

@@ -34,16 +34,20 @@ class ProductsController < ApplicationController
 
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def buy #商品確認画面です
   end
 
-  def destroy
-    @product.destroy
-    redirect_to root_path
+  begin
+    def destroy
+      @product.destroy
+      redirect_to root_path
+    end
+  rescue => exception
+    redirect_to :edit
   end
+    
 
 
   def update
@@ -53,7 +57,6 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
-  render :edit
 
 
 
