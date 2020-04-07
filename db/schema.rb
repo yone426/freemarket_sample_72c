@@ -10,25 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_083019) do
+
+ActiveRecord::Schema.define(version: 2020_04_03_111145) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "zipcode", null: false
-    t.string "prefectures", null: false
     t.string "municipalities", null: false
     t.string "address"
     t.string "building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prefecture_id"
+    t.string "city"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "customar_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "customer_id", null: false
     t.integer "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_04_02_083019) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "src"
     t.bigint "product_id"
-    t.string "src", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_images_on_product_id"
@@ -65,14 +68,17 @@ ActiveRecord::Schema.define(version: 2020_04_02_083019) do
     t.string "name", null: false
     t.string "details", null: false
     t.string "categories", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.string "condition", null: false
     t.string "exhibition", null: false
-    t.string "shippingarea", null: false
     t.string "shippingdate", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
     t.integer "image_id"
+    t.integer "prefecture_id"
+    t.string "city"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,11 +92,13 @@ ActiveRecord::Schema.define(version: 2020_04_02_083019) do
     t.string "nickname", null: false
     t.string "fullname", null: false
     t.string "fullname_katakana", null: false
-    t.integer "phone_number", null: false
-    t.integer "birthday", null: false
+    t.string "phone_number", null: false
+    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
 end

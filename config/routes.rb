@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     end
   end
   resources :images
-  
 
   resources :users do
     collection do
