@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_card
   def index #CardのデータをPayjpに送って情報を取り出す
     if @card.present?
-      Payjp.api_key = "sk_test_141de37a30dc59130b757882"
+      Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
     end
@@ -15,8 +15,7 @@ class CardsController < ApplicationController
   end
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = 'sk_test_141de37a30dc59130b757882'
-
+    Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -28,7 +27,7 @@ class CardsController < ApplicationController
         metadata: {user_id: current_user.id} # 無くてもOK。
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
+      if @card.save!
         redirect_to action: "index"
       else
         redirect_to action: "create"
@@ -37,7 +36,7 @@ class CardsController < ApplicationController
   end
 
   def destroy 
-    Payjp.api_key = "sk_test_141de37a30dc59130b757882"
+    Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy #削除に成功した時にポップアップを表示します。
@@ -52,3 +51,8 @@ class CardsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
   end
 end
+
+
+
+
+
