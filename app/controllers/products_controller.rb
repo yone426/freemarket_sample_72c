@@ -1,6 +1,13 @@
 class ProductsController < ApplicationController
+
   before_action :set_category, only: [:new]
+  before_action :set_product, except: [:index, :new, :create]
+
+
   def index
+    @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
+    @pickup_products = Product.where(categories: 'メンズ', status: 0).order("created_at DESC").page(params[:page]).per(5)
+
     @products = Product.all
   
   end
@@ -20,17 +27,25 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+
   end
 
   def show
 
     @product = Product.find(params[:id])
-    @images = @product.images
+    @image = @product.images.first
+    @images = @product.images.drop(1)
 
   end
 
   def edit
-    
+
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+
   end
 
   def destroy
@@ -58,12 +73,20 @@ class ProductsController < ApplicationController
 
 
   private
-    def product_params
-      params.require(:product).permit(:details, :name, :category_id, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
-    end
-
+  
+  
     def set_category
       @parents = Category.all.where(ancestry: nil).limit(13)
     end
+
+    def product_params
+      params.require(:product).permit(:details, :name, :category_id, :price, :condition, :exhibition, :shippingarea, :shippingdate,:prefecture_id,:city, images_attributes: [:src, :_destroy, :id])
+
+    end
+
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
 
 end

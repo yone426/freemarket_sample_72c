@@ -75,6 +75,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'devise'
+
+gem 'kaminari'
+
 gem 'devise-i18n'     #エラー文章日本語化のため,下のジェムも同意
 gem 'devise-i18n-views'
 gem 'rails-i18n', '~> 5.1'
