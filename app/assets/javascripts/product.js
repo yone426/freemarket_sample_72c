@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', ()=> {
 
 $('#parent-form').on('change', function(){
   let parentValue = document.getElementById("parent-form").value;
-  
+  if (parentValue != "選択してください"){
   $.ajax({
     url: '/products/search',
     type: "GET",
@@ -45,8 +45,13 @@ $('#parent-form').on('change', function(){
     
   })
   .done(function(data){
+    $('#child-form').remove();
+    $('#grandchild-form').remove();
     function childrenselect(data) {
-    let opt = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
+    
+    let opt1 = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
+      let opt = opt1.join('');
+      console.log(opt);
       let tako = `<option value="">選択してください</option>
       ${opt}`;
       let h = `<select name="product[category_ids][]" id="child-form">${tako} </select>`; //colection_selectのとこ
@@ -57,37 +62,53 @@ $('#parent-form').on('change', function(){
   })
   .fail(function() {
     alert('error');
-  });
+  }); 
+}else{
+  $('#child-form').remove();
+  $('#grandchild-form').remove();
+}
 });
 
-// $('#child-form').on('change',function(){
-//   console.log('動く')
-//   let childValue = document.getElementById('child-form').value;
-//   $.ajax({
-//     url: '/products/search',
-//     type: "GET",
-//     data: {
-//       parent_id: childValue // 親ボックスの値をparent_idという変数にする。
-//     },
-//     dataType: 'json'
-//     //json形式を指定
-//   })
-//   .done(function(data){
-//     function childrenselect(data) {
-//       let opt = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
-//         let tako = `<option value="">選択してください</option>
-//         ${opt}`;
-//         let h = `<select name="product[category_ids][]" id="child-form">${tako} </select>`; //colection_selectのとこ
-//         return h
-//       }
-//       var html = childrenselect(data);
-//     $('#formId').append(html);
-//   })
-//   .fail(function() {
-//     alert('error');
-//   });
-// })
 
+
+
+$(document).on('change','#child-form', function(){
+  let parentValue = document.getElementById("child-form").value;
+  if(parentValue != "選択してください"){
+  $.ajax({
+    url: '/products/search',
+    type: "GET",
+    data: {
+      parent_id: parentValue // 親ボックスの値をparent_idという変数にする。
+    },
+    dataType: 'json'
+    //json形式を指定
+  })
+  .done(function(data){
+    if (data.length !=0){
+      $('#grandchild-form').remove();
+      
+      function childrenselect(data) {
+        
+        let opt1 = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
+        let opt = opt1.join('');
+        console.log(opt);
+        let tako = `<option value="">選択してください</option>
+        ${opt}`;
+        let h = `<select name="product[category_ids][]" id="grandchild-form">${tako} </select>`; //colection_selectのとこ
+        return h
+      }
+      var html = childrenselect(data);
+      $('#formId').append(html);
+    }
+    })
+    .fail(function() {
+      alert('error');
+    })
+  }else{
+    $('#grandchild-form').remove();
+  }
+});
 
 })
 
