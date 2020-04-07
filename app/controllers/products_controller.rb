@@ -35,13 +35,17 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-  def update
-    if @product.update(product_params)
-      redirect_to root_path
-    else
-      render :edit
+  begin
+    def update
+      if @product.update(product_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
     end
-  end
+  rescue => exception
+    render :edit
+  end    
 
   private
     def product_params
