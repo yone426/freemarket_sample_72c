@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_04_03_111145) do
+ActiveRecord::Schema.define(version: 2020_04_05_035557) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -26,9 +25,9 @@ ActiveRecord::Schema.define(version: 2020_04_03_111145) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
+    t.integer "user_id"
+    t.integer "customar_id", null: false
+    t.integer "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_111145) do
     t.integer "user_id"
     t.string "name", null: false
     t.string "details", null: false
+    t.string "categories", null: false
     t.string "price", null: false
     t.string "condition", null: false
     t.string "exhibition", null: false
@@ -76,11 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_111145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "image_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
     t.integer "prefecture_id"
     t.string "city"
-
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
