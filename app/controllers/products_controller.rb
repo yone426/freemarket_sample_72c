@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save!
+    if @product.save
       redirect_to root_path
     else
       render :new
@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
+      params.require(:product).permit(:details, :name, :category_id, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
     end
 
     def set_category

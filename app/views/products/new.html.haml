@@ -42,7 +42,7 @@
             %span.fat カテゴリー
             %span.red 必須
           .form{id: 'formId'}
-            = f.collection_select :categories, Category.all.where(ancestry: nil).limit(13), :id, :name,{prompt: "選択してください"}, name: '',id: "parent-form"
+            = f.collection_select :category_id, Category.all.where(ancestry: nil).limit(13), :id, :name,{prompt: "選択してください"}, name: '',id: "parent-form",selected:true
             -# = f.select :categories, [ ["レディース","レディース"], ["メンズ", "メンズ"], ["キッズ・キッズ", "キッズ・キッズ" ] ,["インテリア","インテリア"]], prompt: "選択してください"
 
         .exhibit__all__example__condtion

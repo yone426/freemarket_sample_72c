@@ -54,7 +54,7 @@ $('#parent-form').on('change', function(){
       console.log(opt);
       let tako = `<option value="">選択してください</option>
       ${opt}`;
-      let h = `<select name="" id="child-form">${tako} </select>`; //colection_selectのとこ
+      let h = `<select name="" id="child-form" selected>${tako} </select>`; //colection_selectのとこ
       return h
     }
     var html = childrenselect(data);
@@ -95,7 +95,7 @@ $(document).on('change','#child-form', function(){
         console.log(opt);
         let tako = `<option value="">選択してください</option>
         ${opt}`;
-        let h = `<select name="product[categories]" id="grandchild-form">${tako} </select>`; //colection_selectのとこ
+        let h = `<select name="product[category_id]" id="grandchild-form" selected>${tako} </select>`; //colection_selectのとこ
         return h
       }
       var html = childrenselect(data);
