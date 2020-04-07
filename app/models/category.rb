@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  belongs_to :product
-  has_many :sub_categories, dependent: :nullify
+  has_many :products  
+  has_ancestry
 end

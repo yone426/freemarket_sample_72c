@@ -9,18 +9,26 @@ Rails.application.routes.draw do
     delete 'destroy_user_session', to: 'users/sessions#destroy'
 
   end
- 
-  root to: "products#index" 
+
+  root to: "products#index"
 
   resources :products, only: [:index, :new, :create, :show, :edit] do
+    
     collection do
       post 'purchase'
+    end
+ 
+    collection do 
+      get "category"
+      get "search"
     end
   end
 
   resources :cards, only: [:index, :new, :create, :destroy]
 
+
   resources :users, only: [:show] do
+
     collection do
       get "rogout"
     end

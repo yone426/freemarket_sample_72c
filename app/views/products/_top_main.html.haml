@@ -1,0 +1,207 @@
+.main
+  .image
+    = image_tag asset_path("pict/bg-mainVisual-pict_pc.jpg"), width: "100%", height: "550px"
+    .image__text
+      .image__text__title
+        人生を変えるフリマアプリ
+      .image__text__sub
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .image__text__icon
+        .apple
+          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'apple'
+        .google
+          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'google'
+  .introduction
+    .introduction__title
+      FURIMAが選ばれる3つの理由
+      .introduction__bar
+    .introduction__list
+      .list
+        .list__image
+          = image_tag asset_path("pict/pict-reason-01.jpg"), width: "350px", height: "350px"
+          .list__image__number
+            1
+        .list__title
+          .list__title__left
+            ３分
+          .list__title__right
+            ですぐに出品
+        .list__text
+          スマホで入力するだけで簡単に出品できる！
+      .list
+        .list__image
+          = image_tag asset_path("pict/pict-reason-02.jpg"), width: "350px", height: "350px"
+          .list__image__number
+            2
+        .list__title
+          .list__title__left
+            シンプルで
+          .list__title__right
+            使いやすい
+        .list__text
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      .list
+        .list__image
+          = image_tag asset_path("pict/pict-reason-03.jpg"), width: "350px", height: "350px"
+          .list__image__number
+            3
+        .list__title
+          .list__title__right
+            手数料
+          .list__title__left
+            業界最安
+        .list__text
+          スマホで入力するだけで簡単に出品できる！
+  .second-image
+    = image_tag asset_path("pict/bg-topMiddleDl-pict.jpg"), width: "100%", height: "500px"
+    .second-image__text
+      .second-image__text__title
+        会員数日本一位
+      .second-image__text__sub
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったの商品に出会えるかもしれません。
+      .second-image__text__icon
+        .apple
+          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'apple'
+        .google
+          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'google'
+  .feature
+    .feature__title
+      FURIMAの特徴
+      .feature__title__bar
+    .item
+      .item__list
+        .item__list__image
+          = image_tag asset_path("icon/icon-01.png"), width: "300px", height: "400px"
+        .item__list__title
+          簡単に売り買いできる
+        .item__list__text
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .item__list
+        .item__list__image
+          = image_tag asset_path("icon/icon-03.png"), width: "300x", height: "400px"
+        .item__list__title
+          売上金は即日振り込みに対応
+        .item__list__text
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      .item__list
+        .item__list__image
+          = image_tag asset_path("icon/icon-04.png"), width: "300px", height: "400px"
+        .item__list__title
+          様々な支払いに対応
+        .item__list__text
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  .picup
+    .picup__title
+      ピックアップカテゴリー
+    .picup__sub
+      新規投稿商品
+    .picup__box
+      .picup__box__list
+        .product
+          .product__image
+            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+          .product__body
+            .product__body__name
+              sample
+            .product__body__price
+              .price
+                priceless
+              .star
+                ★
+                .star__like
+                  0
+            .product__body__tax
+              （税込）
+      .picup__box__list
+        .product
+          .product__image
+            -# 画像を押したら詳細ページにとぶ
+            -# = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+          .product__body
+            .product__body__name
+              sample
+            .product__body__price
+              .price
+                priceless
+              .star
+                ★
+                .star__like
+                  0
+            .product__body__tax
+              （税込）
+      .picup__box__list
+        .product
+          .product__image
+            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+          .product__body
+            .product__body__name
+              sample
+            .product__body__price
+              .price
+                priceless
+              .star
+                ★
+                .star__like
+                  0
+            .product__body__tax
+              （税込）
+  .brand
+    .brand__title
+      ピックアップカテゴリー
+    .brand__sub
+      新規投稿商品
+    .brand__box
+      .brand__box__list
+        .product
+          .product__image
+            -# = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'),"/products/#{products.id}", class: 'photo'
+          .product__body
+            .product__body__name
+              sample
+            .product__body__price
+              .price
+                priceless
+              .star
+                ★
+                .star__like
+                  0
+            .product__body__tax
+              （税込）
+      .brand__box__list
+        .product
+          .product__image
+            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
+          .product__body
+            .product__body__name
+              sample
+            .product__body__price
+              .price
+                priceless
+              .star
+                ★
+                .star__like
+                  0
+            .product__body__tax
+              （税込）
+      .brand__box__list
+        .product
+          .product__image
+            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), method: :get, class: 'photo'
+          .product__body
+            .product__body__name
+              sample
+            .product__body__price
+              .price
+                priceless
+              .star
+
+                .star__like
+                  0
+            .product__body__tax
+              （税込）
