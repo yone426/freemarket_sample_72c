@@ -138,7 +138,7 @@
         .product__image
           - @new_products.each do |product|
             - if product.images[0]
-              = image_tag product.images[0].image, class: "photo"
+              = image_tag product.images[0].src.url, class: "photo"
         .product__body
           - @new_products.each do |new_product|
             .product__body__box
@@ -163,9 +163,9 @@
     .pickup_products__box
       .product
         .product__image
-          - @new_products.each do |product|
+          - @pickup_products.each do |product|
             - if product.images[0]
-              = image_tag product.images[0].image, class: "photo"
+              = image_tag product.images[0].src.url, class: "photo"
         .product__body
           - @pickup_products.each do |pickup_product|
             .product__body__box

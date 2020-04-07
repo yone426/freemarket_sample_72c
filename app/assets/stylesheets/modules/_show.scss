@@ -33,43 +33,20 @@
             width: 300px;
             display: flex;
             background-color: blue;
-            .photo1 {
+            &__main {
               height: 300px;
               width: 300px;
               background-color: burlywood;
             }
           }
           .photo-list {
-            background-color: lawngreen;
             height: 60px;
             width: 100%;
             display: flex;
-            .photo-two {
+            .photo-sab {
               height: 60px;
               width: 60px;
-              background-color: hotpink;
-              .photo2 {
-                height: 60px;
-                width: 60px;
-              }
-            }
-            .photo-three {
-              height: 60px;
-              width: 60px;
-              background-color: indigo;
-              .photo3 {
-                height: 60px;
-                width: 60px;
-              }
-            }
-            .photo-four {
-              height: 60px;
-              width: 60px;
-              background-color: red;
-              .photo4 {
-                height: 60px;
-                width: 60px;
-              }
+              border: 1px solid cadetblue;
             }
           }
         }
