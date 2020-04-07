@@ -19,7 +19,7 @@
         %li
           = link_to 'クレジットカード', new_card_path,class: "list"
         %li
-          = link_to 'ログアウト',rogout_users_path,class: "list"
+          = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "list"
 
     .main
       .main__top

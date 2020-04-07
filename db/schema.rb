@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_111145) do
     t.integer "image_id"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
-    t.integer "prefecture_id"
     t.string "city"
 
   end
