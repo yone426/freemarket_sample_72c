@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :set_category, only: [:new]
   def index
     @products = Product.all
   
@@ -8,13 +8,14 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    @parents = Category.all.where(ancestry: nil).limit(13)
+
 
   end
+  
 
   def create
     @product = Product.new(product_params)
-    if @product.save
+    if @product.save!
       redirect_to root_path
     else
       render :new
@@ -59,6 +60,10 @@ class ProductsController < ApplicationController
   private
     def product_params
       params.require(:product).permit(:details, :name, :categories, :price, :condition, :exhibition, :shippingarea, :shippingdate, images_attributes: [:src])
+    end
+
+    def set_category
+      @parents = Category.all.where(ancestry: nil).limit(13)
     end
 
 end
