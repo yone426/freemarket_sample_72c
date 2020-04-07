@@ -25,7 +25,8 @@
       .main__top
         = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
         .main__top__name
-          %span naoya
+          %span 
+            =current_user.nickname
         .main__top__sell
           %span 出品数
       .main__button
