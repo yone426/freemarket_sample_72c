@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
@@ -47,6 +47,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -75,8 +76,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'devise'
 
+gem 'kaminari'
+
+gem 'devise-i18n'     #エラー文章日本語化のため,下のジェムも同意
+gem 'devise-i18n-views'
+gem 'rails-i18n', '~> 5.1'
+
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'pry-rails'
 gem "jquery-rails"
+gem 'active_hash'
+
