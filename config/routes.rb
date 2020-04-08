@@ -16,9 +16,6 @@ Rails.application.routes.draw do
     
     collection do
       post 'purchase'
-    end
- 
-    collection do 
       get "category"
       get "search"
     end
