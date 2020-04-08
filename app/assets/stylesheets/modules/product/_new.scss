@@ -133,7 +133,6 @@
           width: 50%;
           height: 60px;
           font-size: 20px;
-          cursor: pointer;
         }
       }
       .save{
@@ -144,15 +143,7 @@
           width: 50%;
           height: 60px;
           font-size: 20px;
-          cursor: pointer;
-        }
-        .delete__button{
-          background-color: rgb(141, 133, 133);
-          padding: 20px 121px;
-          font-size: 20px;
-          text-decoration: none;
-          color: #fff;
-        }
+        }  
       }
       .back{
         text-align: center;
@@ -187,3 +178,4 @@
     margin-bottom: 10px;
   }
 }
+
