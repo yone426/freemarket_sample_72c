@@ -36,29 +36,21 @@
           %span 購入履歴
 
       .main__list
+        -@products.each do |product|
+          .list
+            = image_tag asset_path(product.images[0].src),class: 'list__image'
+  
 
-        .list
-          = image_tag asset_path('logo/logo.png'),class: 'list__image'
-
-          %ul.list__product
-            -# ダミーデータ１
-            %li.list__product__title
-              %span どうぶつの森
-            -# ダミーデータ２
-            %li.list__product__content
-              %span セーブデータは残っていません
-
-        .list
-          = image_tag asset_path('logo/logo.png'),class: 'list__image'
-
-          %ul.list__product
-
-            %li.list__product__title
-              %span フリマ
-            %li.list__product__content
-              %span この商品は2年前に購入しましたがほぼ未使用です
-
-        
+            %ul.list__product
+              %li.list__product__title
+                %span
+                  =product.name 
+              
+              %li.list__product__content
+                %span
+                  =product.details
+                
+       
         = link_to '出品一覧リストを見る',"#",class:'link'
 
         
