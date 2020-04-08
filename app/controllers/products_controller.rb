@@ -11,10 +11,10 @@ class ProductsController < ApplicationController
 
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
-    @pickup_products = Product.where(categories: 'メンズ', status: 0).order("created_at DESC").page(params[:page]).per(5)
+    @pickup_products = Product.where(status:0).all.order("created_at DESC").page(params[:page]).per(5)
 
     @products = Product.all
-  
+   
   end
 
   def new
