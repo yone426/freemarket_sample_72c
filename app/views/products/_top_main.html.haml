@@ -10,9 +10,10 @@
         フリマアプリです
       .image__text__icon
         .apple
-          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'apple'
+          %a{href: "https://apps.apple.com", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-06-20&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"}
         .google
-          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'google'
+          %a{href: "https://play.google.com/store/apps?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+            %img{alt: "Google Play で手に入れよう",width: "155px", height: "60px", src: "https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png"}
   .introduction
     .introduction__title
       FURIMAが選ばれる3つの理由
@@ -67,9 +68,10 @@
         ほしかったの商品に出会えるかもしれません。
       .second-image__text__icon
         .apple
-          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'apple'
+          %a{href: "https://apps.apple.com", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2011-06-20&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"}
         .google
-          = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'google'
+          %a{href: "https://play.google.com/store/apps?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+            %img{alt: "Google Play で手に入れよう",width: "155px", height: "60px", src: "https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png"}
   .feature
     .feature__title
       FURIMAの特徴
@@ -96,112 +98,56 @@
           様々な支払いに対応
         .item__list__text
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  .picup
-    .picup__title
+  .new_products
+    .new_products__title
       ピックアップカテゴリー
-    .picup__sub
-      新規投稿商品
-    .picup__box
-      .picup__box__list
-        .product
-          .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
-          .product__body
-            .product__body__name
-              sample
-            .product__body__price
-              .price
-                priceless
-              .star
-                ★
-                .star__like
-                  0
-            .product__body__tax
-              （税込）
-      .picup__box__list
-        .product
-          .product__image
-            -# 画像を押したら詳細ページにとぶ
-            -# = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
-          .product__body
-            .product__body__name
-              sample
-            .product__body__price
-              .price
-                priceless
-              .star
-                ★
-                .star__like
-                  0
-            .product__body__tax
-              （税込）
-      .picup__box__list
-        .product
-          .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
-          .product__body
-            .product__body__name
-              sample
-            .product__body__price
-              .price
-                priceless
-              .star
-                ★
-                .star__like
-                  0
-            .product__body__tax
-              （税込）
-  .brand
-    .brand__title
+    .new_products__sub
+      = link_to '新規投稿商品', '#', class: "new-item-link"
+    .new_products__box
+      .product
+        .product__image
+          - @new_products.each do |product|
+            - if product.images[0]
+              -# = image_tag product.images[0].src.url, class: "photo"
+        .product__body
+          - @new_products.each do |new_product|
+            .product__body__box
+              .product__body__box__name
+                = new_product.name
+              .product__body__box__price
+                .price
+                  ¥
+                  = new_product.price
+                .star
+                  ★
+                  .star__like
+                    0
+              .product__body__box__tax
+                （税込）
+      
+  .pickup_products
+    .pickup_products__title
       ピックアップカテゴリー
-    .brand__sub
-      新規投稿商品
-    .brand__box
-      .brand__box__list
-        .product
-          .product__image
-            -# = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'),"/products/#{products.id}", class: 'photo'
-          .product__body
-            .product__body__name
-              sample
-            .product__body__price
-              .price
-                priceless
-              .star
-                ★
-                .star__like
-                  0
-            .product__body__tax
-              （税込）
-      .brand__box__list
-        .product
-          .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), class: 'photo'
-          .product__body
-            .product__body__name
-              sample
-            .product__body__price
-              .price
-                priceless
-              .star
-                ★
-                .star__like
-                  0
-            .product__body__tax
-              （税込）
-      .brand__box__list
-        .product
-          .product__image
-            = link_to image_tag asset_path( 'icon/member_photo_noimage_thumb.png'), method: :get, class: 'photo'
-          .product__body
-            .product__body__name
-              sample
-            .product__body__price
-              .price
-                priceless
-              .star
-
-                .star__like
-                  0
-            .product__body__tax
-              （税込）
+    .pickup_products__sub
+      = link_to 'メンズ', '#', class: "mens-item-link"
+    .pickup_products__box
+      .product
+        .product__image
+          - @pickup_products.each do |product|
+            - if product.images[0]
+              -# = image_tag product.images[0].src.url, class: "photo"
+        .product__body
+          - @new_products.each do |new_product|
+            .product__body__box
+              .product__body__box__name
+                = new_product.name
+              .product__body__box__price
+                .price
+                  ¥
+                  = new_product.price
+                .star
+                  ★
+                  .star__like
+                    0
+              .product__body__box__tax
+                （税込）

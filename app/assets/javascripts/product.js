@@ -120,7 +120,7 @@ $(document).on('change','#child-form', function(){
       function childrenselect(data) {
         
         let opt1 = data.map(x=> `<option value="${x.id}">${x.name}</option>`)
-        let opt = opt1.join('');
+        let opt = opt1.join('');  
   
         let tako = `<option value="">選択してください</option>
         ${opt}`;
