@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root to: "products#index"
 
-  resources :products, only: [:index, :new, :create, :show, :edit] do
+  resources :products, only: [:index, :new, :create, :show, :edit, :update] do
     
     collection do
       post 'purchase'
