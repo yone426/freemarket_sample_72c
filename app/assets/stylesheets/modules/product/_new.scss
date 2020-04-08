@@ -19,11 +19,16 @@
     padding: 40px;
 
     &__images{
-     
+      
       margin-bottom: 30px;
       .ten{
         font-size: 15px;
         margin-bottom: 10px;
+          .js-file_group{
+              .js-file{
+                display: none;
+              }
+          }
       }
       .image_form{
         width :100%;

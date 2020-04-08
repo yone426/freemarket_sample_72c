@@ -101,12 +101,10 @@
       &__icon{
         display: flex;
         .apple{
-        width: 200px;
-        height: 70px;
+          margin: 10px;
         }
         .google{
-          width: 200px;
-          height: 70px;
+          margin: 0 0 10px 0;
         }
       }
     }
@@ -188,12 +186,10 @@
       &__icon{
         display: flex;
         .apple{
-          width: 200px;
-          height: 70px;
+          margin: 10px;
         }
         .google{
-          width: 200px;
-          height: 70px;
+          margin: 0 0 10px 0;
         }
       }
     }
@@ -399,14 +395,11 @@
       font-weight: bold;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       display: flex;
-      &__appstore {
-        height: 50px;
-        width: 180px;
-        margin-right: 20px;
+      .apple{
+        margin: 10px;
       }
-      &__googleplay {
-        height: 50px;
-        width: 180px;
+      .google{
+        margin: 0 0 10px 0;
       }
     }
   }
@@ -466,5 +459,20 @@
         text-align: center;
       }
     }
+  }
+}
+.new{
+  position: fixed;
+  bottom: 50px;
+  right: 15px; 
+  .new{
+    
+    border-radius: 50%;
+    padding: 75px ;
+    background-color: #3ccace;
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    font-size: 30px;
   }
 }
