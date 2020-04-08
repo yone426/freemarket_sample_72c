@@ -12,8 +12,6 @@ class User < ApplicationRecord
 
   KATAKANA = /\A[ァ-ヶー－]+\z/
   FULLNAME =/\A[一-龥ぁ-ん]/
-
-
   validates :email,:nickname,:fullname,:fullname_katakana,:phone_number,:birthday, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: true,format: { with: VALID_EMAIL_REGEX }

@@ -14,8 +14,9 @@ class CardsController < ApplicationController
     redirect_to user_path(current_user.id) if card.present?
   end
 
-  def create #PayjpとCardのデータベースを作成
+  def create #PayjpとCardのデータベースを作成えぃt
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
+    # binding.pry
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
