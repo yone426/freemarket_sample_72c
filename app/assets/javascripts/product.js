@@ -59,9 +59,10 @@ $(document).on('turbolinks:load', ()=> {
 });
 
 //動的カテゴリボックスの実装
-
+$(document).on('turbolinks:load', ()=> {
 $('#parent-form').on('change', function(){
   let parentValue = document.getElementById("parent-form").value;
+  
   if (parentValue != "選択してください"){
   $.ajax({
     url: '/products/search',
@@ -138,7 +139,7 @@ $(document).on('change','#child-form', function(){
     $('#grandchild-form').remove();
   }
 });
-
+})
 })
 
 

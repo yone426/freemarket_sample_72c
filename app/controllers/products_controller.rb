@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   require 'payjp'
   before_action :set_category, only: [:new]
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, only: [:show,:edit,:destroy,:update]
 
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
