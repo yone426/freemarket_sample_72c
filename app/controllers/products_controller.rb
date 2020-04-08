@@ -44,23 +44,29 @@ class ProductsController < ApplicationController
   end
 
   def edit
+  end	
 
+  def buy #商品確認画面です	
+  end	
+
+  begin	
+    def destroy	
+      @product.destroy	
+      redirect_to root_path	
+    end	
+  rescue => exception	
+    redirect_to :edit	
+  end	
+
+
+
+  def update	
     if @product.update(product_params)
       redirect_to root_path
     else
       render :edit
     end
-
   end
-
-  def destroy
- 
-  end
-
-  def update
-
-  end
-
 
   def purchase
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
