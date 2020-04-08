@@ -20,9 +20,10 @@
       - if user_signed_in?
         .header__box__various__right
           .header__box__various__right__login
-            = link_to "#{current_user.fullname}のマイページ", user_path(current_user.id), class: "login"
-          .header__box__various__right__sign_up
-            = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "sign_up"
+            = current_user.fullname
+          .header__box__various__right__login
+            = link_to "マイページ", user_path(current_user.id), class: "login"
+      
       - else      
         .header__box__various__right
           .header__box__various__right__login
