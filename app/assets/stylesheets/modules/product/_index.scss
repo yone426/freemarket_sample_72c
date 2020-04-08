@@ -27,9 +27,13 @@
       }
       &__search{
         .submit{
-          width: 20px;
-          height: 20px;
-         
+          width: 40px;
+          height: 42px;
+          margin: 10px;
+          background-color: #3ccace;
+          color: #fff;
+
+          
           .search-icon{
             text-decoration: none;
             width: 25px;
