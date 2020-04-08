@@ -58,13 +58,7 @@
           .categories{
             color: #333;
             text-decoration: none;
-          }
-        }
-        &__brand{
-          padding: 0 30px 0 0;
-          .brand{
-            color: #333;
-            text-decoration: none;
+            font-size: 14px;
           }
         }
       }
@@ -75,6 +69,7 @@
           .login{
             color: #333;
             text-decoration: none;
+            font-size: 14px;
           }
         }
         &__sign_up{
@@ -82,6 +77,7 @@
           .sign_up{
             color: #333;
             text-decoration: none;
+            font-size: 14px;
           }
         }
       }
@@ -90,6 +86,7 @@
 }
 .main{
   .image{
+    margin-top: 10px;
     position: relative;
     &__text{
       position: absolute;
@@ -258,6 +255,7 @@
       font-weight: bold;
       color: #3ccace;
       text-align: center;
+      margin-bottom: 10px;
       .new-item-link{
         text-decoration: none;
         color:#3ccacd;
@@ -294,7 +292,7 @@
               }
             }
             &__tax{
-
+              font-size: 10px;
             }
           }
         }
@@ -303,7 +301,7 @@
 
   }
   .pickup_products{
-    padding: 100px 0 50px 0;
+    padding: 100px 0 100px 0;
     background-color: rgb(248, 248, 248);
     &__title{
       text-align: center;
@@ -316,6 +314,7 @@
       font-weight: bold;
       color: #3ccace;
       text-align: center;
+      margin-bottom: 10px;
       .mens-item-link{
         text-decoration: none;
         color:#3ccacd;
@@ -352,7 +351,7 @@
               }
             }
             &__tax{
-
+              font-size: 10px;
             }
           }  
         }
