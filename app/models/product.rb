@@ -19,4 +19,9 @@ class Product < ApplicationRecord
 
   validates :name, :price, :details, :category_id, :condition, :exhibition, :shippingdate,:prefecture_id, presence: true
 
+  before_create :change_product
+  def change_product
+    self.status = 0
+  end
+
 end
