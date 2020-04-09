@@ -1,0 +1,64 @@
+.categ{
+  background-color: #F5F5F5;
+  padding: 50px 0 20px 0;
+  height: 100%;
+  &__title{
+    background-color: #F5F5F5;
+    width: 70%;
+
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+    &__jaru{
+      font-size: 1.4em;
+    }
+    &__no{
+      text-align: center;
+      margin:200px 0 200px 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+  &__main{
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    
+    flex-wrap:wrap;
+    // ここに後からいい感じのタイル並べるcssを設計する
+    .items{
+      width: 180px;
+      height: 250px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      display: block;
+      background-color: white;
+      text-decoration: none;
+      
+      &__box{
+        width: 100%;
+        height: 80%;
+        
+      }
+      .item{
+        position: relative;
+
+          
+          &__price{
+           z-index: 2;
+           position: absolute;
+           top: -40px;
+           left: 0;
+           padding: 4px 12px 4px 8px;
+           border-radius: 0 16px 16px 0;
+           font-weight: 600;
+           color: #fff;
+           background-color: rgba(0,0,0,0.3);
+          }
+          &__name{
+            color: black;
+          }
+        }
+        }
+  }
+}

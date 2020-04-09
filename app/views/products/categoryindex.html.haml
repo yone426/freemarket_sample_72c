@@ -1,0 +1,21 @@
+= render partial: 'top_header'
+.categ
+  .categ__title
+    %h1.categ__title__jaru 
+      ="#{@category.name}の商品一覧"
+  -if @products
+    .categ__main
+      -@products.each do |product|
+        =link_to product_path(product.id),class:"items"  do
+          = image_tag asset_path(product.images[0].src),class: 'items__box'
+          .item
+            %span{class:'item__price'}
+              ="￥#{product.price}"
+            %span{class: 'item__name'}
+              = product.name
+  - else
+  %h1.categ__title__no
+    ="#{@category.name}は現在出品されていません"
+          
+        
+= render partial: 'top_footer'
