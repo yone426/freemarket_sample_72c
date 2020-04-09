@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       get "category"
       get "search"
     end
+    member do
+      get 'categoryindex'
+    end
   end
 
   resources :cards, only: [:index, :new, :create, :destroy]
