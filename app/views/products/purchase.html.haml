@@ -10,15 +10,21 @@
           = image_tag asset_path('icon/icon_brand.png'), size: "80x80", class: 'main__item__image__small-image'
         .main__contents__item-info__detail
           .name
-            %p 黒い子供用の靴
-          .price
-            %p ¥22,000（税込） 送料込み
+            = @product.name
+          .price 
+            %span.price__letter
+              ¥
+              = @product.price
+            %span.price__tax
+              (税込)
+            %span.price__shipping
+              送料込み
       .payment-amount
         .payment-amount__top
           .payment-amount__top__text
             %p 支払い金額
           .payment-amount__top__price
-            %p ¥700
+            = @product.price
 
         .payment-amount__point-text
           %p ポイントを使用 (所持ポイント: P0)
@@ -54,8 +60,8 @@
         .attention-text
           %p 郵便局/コンビニ受取をご希望の方は、購入後、取引画面から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
         .purchase-btn
-          %p 購入する
-          = form_with url: purchase_products_path do
+          = form_with url: pay_products_path do
             :plain
               <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_7cc71c15790e0cce7327840d"></script>
+         
   .footer
