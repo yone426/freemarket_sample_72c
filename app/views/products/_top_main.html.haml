@@ -138,14 +138,14 @@
             - if product.images[0]
               = image_tag product.images[0].src.url, class: "photo"
         .product__body
-          - @new_products.each do |new_product|
+          - @pickup_products.each do |pickup_product|
             .product__body__box
               .product__body__box__name
                 = new_product.name
               .product__body__box__price
                 .price
                   ¥
-                  = new_product.price
+                  = pickup_product.price
                 .star
                   ★
                   .star__like
