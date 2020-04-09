@@ -11,6 +11,7 @@
           .photo-list
             - @images.each do |image|
               .photo-sab
+                = image_tag "#{image.src}", class: "images-sab"
         .content__table
           %table
             %tr
@@ -51,12 +52,12 @@
           %span.price__shipping
             送料込み
         .choice-btn
-          .edit-btn
-          - if user_signed_in? && current_user.id == @product.user_id
-            = link_to "商品編集画面に進む",edit_product_path(@product.id)
-          - else
           .buy-btn
-            = link_to "購入画面に進む","#"
+            - if user_signed_in? && current_user.id == @product.user_id
+              = link_to "商品編集画面に進む",edit_product_path(@product.id)
+          -# - else
+            
+              -# = link_to "購入画面に進む", purchase_products_path(@product.d)
         .item-explain
           %p.item-explain__inner
             %h2
