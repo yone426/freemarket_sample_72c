@@ -3,6 +3,7 @@
     = link_to image_tag(asset_path('logo/logo.png'), class: 'merucari'), root_path
   .exhibit__all
     = form_with(model: @product, local: true) do |f|
+      = render 'layouts/error_messages', model: f.object
 
       .exhibit__all__images
         .left_text
