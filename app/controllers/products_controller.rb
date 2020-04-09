@@ -1,13 +1,8 @@
 class ProductsController < ApplicationController
 
-
-
   require 'payjp'
-
-
   before_action :set_category, only: [:new]
   before_action :set_product, only: [:show,:edit,:destroy,:update]
-
 
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
@@ -45,9 +40,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-  end	
-
-  def buy #商品確認画面です	
   end	
 
   begin	

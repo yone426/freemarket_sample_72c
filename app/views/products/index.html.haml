@@ -3,6 +3,7 @@
 = render partial: 'top_header'
 = render partial: 'top_main'
 = render partial: 'top_footer'
-.new
 - if user_signed_in?
-  = link_to "出品",new_product_path, class:"new"
+
+  .new
+    = link_to "出品",new_product_path, class:"new-link"
