@@ -24,7 +24,7 @@ $takasa:45px;
 
 .mypage{
   background-color: #f5f5f5;
-  height: 100vh;
+  height: 100%;
   padding-top: 20px;
   &__wrraper {
     margin: 20px auto;
@@ -96,6 +96,7 @@ $takasa:45px;
       &__list{
         height: 500px;
         background-color: white;
+        overflow: scroll;
         .list{
           height:80px;
           display: flex;
