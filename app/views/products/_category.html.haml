@@ -9,6 +9,6 @@
       .parent__child__grandchild          
         -child.children.each_with_index do |grandchild,id|
           .parent__child__grandchild__cont
-            = link_to grandchild.name,"#",class:'link'
+            = link_to grandchild.name,categoryindex_product_path(grandchild.id),class:'link'
             -id
             -grandchild.name

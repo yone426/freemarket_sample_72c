@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       render :new
     end
@@ -75,6 +75,12 @@ class ProductsController < ApplicationController
   end
 
   def categoryindex
+    @category = Category.find(params[:id])
+    @products = Product.where(category_id: @category.id)
+    @image
+    
+    
+
   end
 
   def search
