@@ -55,9 +55,9 @@
           .buy-btn
             - if user_signed_in? && current_user.id == @product.user_id
               = link_to "商品編集画面に進む",edit_product_path(@product.id)
-          -# - else
+            - else
+              = link_to "購入画面に進む", purchase_products_path
             
-              -# = link_to "購入画面に進む", purchase_products_path(@product.d)
         .item-explain
           %p.item-explain__inner
             %h2

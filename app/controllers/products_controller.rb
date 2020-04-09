@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   require 'payjp'
   before_action :set_category, only: [:new]
-  before_action :set_product, only: [:show,:edit,:destroy,:update]
+  before_action :set_product, only: [:show,:edit,:destroy,:update, :pay]
 
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
@@ -62,12 +62,19 @@ class ProductsController < ApplicationController
   end
 
   def purchase
+    @product = Product.find(params[:id])
+  end
+
+  def pay
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     Payjp::Charge.create(
-      amount: 700, # 決済する値段
+      amount: @product.price, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
+  end
+
+  def done
   end
 
   def category 

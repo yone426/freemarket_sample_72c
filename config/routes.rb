@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :products do
     
     collection do
-      post 'purchase'
+      get  'purchase/:id'=>  'products#purchase', as: 'purchase'
+      post 'pay/:id'=>   'products#pay', as: 'pay'
+      get  'done'=> 'products#done', as: 'done'
       get "category"
       get "search"
     end
