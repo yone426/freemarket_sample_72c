@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   require 'payjp'
   before_action :set_category, only: [:new]
-  before_action :set_product, only: [:show,:edit,:destroy,:update, :pay]
+  before_action :set_product, only: [:show,:edit,:destroy,:update, :purchase, :pay]
 
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-
 
   end
   
@@ -62,7 +61,6 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find(params[:id])
   end
 
   def pay
@@ -70,11 +68,13 @@ class ProductsController < ApplicationController
     Payjp::Charge.create(
       amount: @product.price, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
-      currency: 'jpy'
-    )
+      currency: 'jpy'	
+      )
+      redirect_to products_path
   end
 
   def done
+    redirect_to root_path
   end
 
   def category 
@@ -100,9 +100,7 @@ class ProductsController < ApplicationController
     end
   end
 
-
   private
-  
   
     def set_category
       @parents = Category.all.where(ancestry: nil).limit(13)
