@@ -70,11 +70,13 @@ class ProductsController < ApplicationController
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'	
       )
-      redirect_to products_path
+      @product.destroy
+      redirect_to root_path
   end
 
   def done
-    redirect_to root_path
+    @product_purchaser = Product.find(params[:id])
+    @product_purchaser.update( purchaser_id: current_user.id)
   end
 
   def category 
