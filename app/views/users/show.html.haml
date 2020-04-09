@@ -38,7 +38,7 @@
       .main__list
         -@products.each do |product|
           =link_to product_path(product.id), class:'list' do
-            -# = image_tag asset_path(product.images[0].src),class: 'list__image'
+            = image_tag asset_path(product.images[0].src),class: 'list__image'
   
 
             %ul.list__product
