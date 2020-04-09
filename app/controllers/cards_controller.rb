@@ -2,7 +2,10 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
   def index #CardのデータをPayjpに送って情報を取り出す
-    if @card.present?
+    card = current_user.card
+    if card.blank?
+      redirect_to action: "new" 
+    else
       Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
@@ -16,7 +19,6 @@ class CardsController < ApplicationController
 
   def create #PayjpとCardのデータベースを作成えぃt
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
-    # binding.pry
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else

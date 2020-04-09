@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
     @image = @product.images.first
     @images = @product.images.drop(1)
     @area = @product.prefecture
+    
 
   end
 
@@ -74,10 +75,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
   end
 
-  def done
-    @product_purchaser = Product.find(params[:id])
-    @product_purchaser.update( purchaser_id: current_user.id)
-  end
+  
 
   def category 
     @parents = Category.all.where(ancestry: nil).limit(13)
@@ -101,6 +99,10 @@ class ProductsController < ApplicationController
       end
     end
   end
+
+  
+
+  
 
   private
   
