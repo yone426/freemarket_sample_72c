@@ -9,7 +9,9 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, :price, :details, :category_id, :condition, :exhibition, :shippingdate,:prefecture_id, presence: true
+  validates :name, :price, :details, :category_id, :condition, :exhibition, :shippingdate, :prefecture_id, presence: true
+  validates_associated :images
+  validates :images, presence: true
 
   before_create :change_product
   def change_product
