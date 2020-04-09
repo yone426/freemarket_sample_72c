@@ -73,7 +73,7 @@
             %span.fat 発送元の地域
             %span.red 必須
           .form  
-            = f.select :shippingarea, [ ["西日本","西日本"], ["東日本", "東日本"]], prompt: "選択してください"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
 
         .exhibit__all__send__date
           .left_text
@@ -104,7 +104,7 @@
         .out
           = f.submit "出品する",class: 'out_button' 
         .save
-          = link_to "削除する", "/products/#{@product.id}",method: :delete, class: "delete__button"
+          = link_to "削除する", product_path(@product.id),method: :delete, class: "delete__button"
         .back
           = link_to type: "submit",class: "out_button" do
             = "もどる"
