@@ -137,6 +137,7 @@
           width: 50%;
           height: 60px;
           font-size: 20px;
+          cursor: pointer;
         }
       }
       .save{
@@ -147,7 +148,14 @@
           width: 50%;
           height: 60px;
           font-size: 20px;
-        }  
+        }
+        .delete__button{
+          background-color: rgb(141, 133, 133);
+          text-decoration: none;
+          padding: 20px 122px;
+          font-size: 20px;
+          color: #fff;
+        }
       }
       .back{
         text-align: center;
