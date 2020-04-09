@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @image = @product.images.first
     @images = @product.images.drop(1)
+    @area = @product.prefecture
 
   end
 

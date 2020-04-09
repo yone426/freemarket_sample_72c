@@ -3,15 +3,7 @@ class Product < ApplicationRecord
   belongs_to :user ,optional: true
   belongs_to :category #新たに追加したリレーション 一つの商品には一つのカテゴリが付属しているため
   
-  # def show_first_image
-  #   if products.images.src.present?
-  #     product.images.src.first
-  #   else
-  #     "https://placehold.jp/150x150.png"
-  #   end
-  # end
-  
-  has_many :images
+  has_many :images,dependent: :destroy
   has_many :comments
   has_many :likes
   belongs_to_active_hash :prefecture

@@ -104,7 +104,7 @@
         .out
           = f.submit "出品する",class: 'out_button' 
         .save
-          = link_to "削除する", "/products/#{@product.id}",method: :delete, class: "delete__button"
+          = link_to "削除する", product_path(@product.id),method: :delete, class: "delete__button"
         .back
           = link_to type: "submit",class: "out_button" do
             = "もどる"

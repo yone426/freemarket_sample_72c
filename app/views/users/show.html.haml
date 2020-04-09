@@ -37,7 +37,7 @@
 
       .main__list
         -@products.each do |product|
-          .list
+          =link_to product_path(product.id), class:'list' do
             = image_tag asset_path(product.images[0].src),class: 'list__image'
   
 
@@ -49,6 +49,8 @@
               %li.list__product__content
                 %span
                   =product.details
+              
+              
                 
        
         = link_to '出品一覧リストを見る',"#",class:'link'
