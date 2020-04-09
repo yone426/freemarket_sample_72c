@@ -17,8 +17,10 @@
       
       - if @product.persisted?
         .js-file_group{"data-index" => "#{@product.images.count}"}
-          = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-          .js-remove 削除
+          = f.label :src do
+            %i.fas.fa-file-upload
+            = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+            .js-remove 削除
 
 
 
