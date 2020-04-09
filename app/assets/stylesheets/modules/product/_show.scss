@@ -27,7 +27,7 @@
           min-width: 300px;
           max-width: 300px;
           min-height: 375px;
-          background-color: gray;
+          background-color: #F5F5F5;
           .photo-main {
             height: 300px;
             width: 300px;
@@ -46,7 +46,10 @@
             .photo-sab {
               height: 60px;
               width: 60px;
-              border: 1px solid cadetblue;
+              .images-sab {
+                height: 70px;
+                width: 70px;
+              }
             }
           }
         }
