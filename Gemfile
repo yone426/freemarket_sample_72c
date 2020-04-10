@@ -94,3 +94,4 @@ gem 'dotenv-rails'
 gem 'ancestry'
 
 
+gem 'fog-aws'
