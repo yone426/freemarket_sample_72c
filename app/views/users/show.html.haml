@@ -10,17 +10,16 @@
           = link_to '出品状況', "#",class: "list"
         %li
           = link_to '購入履歴', "#",class: "list"
-        
       %p 設定
-      %ul.side__acount
-        
+      %ul.side__acount 
         %li
           = link_to '本人情報設定', edit_user_registration_path,class: "list"
         %li
           = link_to 'クレジットカード', new_card_path,class: "list"
         %li
+          = link_to 'クレジットカード詳細', cards_path, class: "list"
+        %li
           = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "list"
-
     .main
       .main__top
         = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
@@ -29,31 +28,20 @@
             =current_user.nickname
         .main__top__sell
           %span 
-    
       .main__button
         %button 
           %span 出品リスト
         %button
           %span 購入履歴
-
       .main__list
         -@products.each do |product|
           =link_to product_path(product.id), class:'list' do
             = image_tag asset_path(product.images[0].src),class: 'list__image'
-  
-
             %ul.list__product
               %li.list__product__title
                 %span
                   =product.name 
-              
               %li.list__product__content
                 %span
                   =product.details
-              
-              
-                
-       
         = link_to '出品一覧リストを見る',"#",class:'link'
-
-        

@@ -1,7 +1,7 @@
 .show-contents  {
+  background-color: #F5F5F5;
   margin: 0 auto;
   padding: 0;
-
   .item {
     height: 100％;
     width: calc(100vw - 600px);
@@ -114,7 +114,7 @@
           line-height: 60px;
           display: block;
           margin-top: 16px;
-          background: #ea352d;
+          background: #3BCACE;
           font-weight: 600;
           text-align: center;
           a {
@@ -233,8 +233,8 @@
   .icon-box {
     margin: 24px auto;
     width: 700px;
-    background-color: #ffffff;
-    padding: 24px 60px 60px;
+    padding: 24px 60px 10px;
+    background-color: white;
     &__list {
       margin: 16px 0 0;
       text-align: center;
