@@ -15,6 +15,7 @@
       .header__box__various__left
       
         .header__box__various__left__categories
+          %i.fas.fa-bars
           = link_to "カテゴリ一から探す",category_products_path, class: "categories"
         
       - if user_signed_in?

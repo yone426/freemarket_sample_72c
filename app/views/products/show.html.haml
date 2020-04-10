@@ -17,7 +17,7 @@
             %tr
               %th 出品者
               %td
-                = link_to @product.user.nickname,user_path(@product.user.id)
+                = link_to @product.user.nickname,"#"
             %tr
               %th カテゴリー
               %td 
@@ -61,7 +61,7 @@
             
             - else
               = link_to "購入画面に進む", purchase_products_path
-            
+
         .item-explain
           %p.item-explain__inner
             %h2
