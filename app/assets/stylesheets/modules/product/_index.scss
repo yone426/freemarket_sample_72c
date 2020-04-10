@@ -56,10 +56,17 @@
         display: flex;
         &__categories{
           padding: 0 30px 0 0;
+          i{
+            color: #3BCACD;
+          }
           .categories{
             color: #333;
             text-decoration: none;
             font-size: 14px;
+            cursor: pointer;
+            &:hover{
+              color: #84D3FC;
+            }
           }
         }
       }
@@ -71,6 +78,9 @@
             color: #333;
             text-decoration: none;
             font-size: 14px;
+            &:hover{
+              color: #84D3FC;
+            }
           }
         }
         &__sign_up{
