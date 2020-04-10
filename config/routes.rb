@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       get  'done'=> 'products#done', as: 'done'
       get "category"
       get "search"
+      get "previous"
+      get "next"
     end
     member do
       get 'categoryindex'
