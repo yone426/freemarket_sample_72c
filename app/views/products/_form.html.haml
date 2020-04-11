@@ -8,7 +8,7 @@
 
 
     .js-file_group{"data-index" => "#{f.index}"}
-      = f.file_field :src, class: 'js-file'
+      = f.file_field :src, class: 'js-file',required:true
       %span.js-remove 削除
     - if @product.persisted?
       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'

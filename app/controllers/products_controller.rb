@@ -24,8 +24,10 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to user_path(current_user.id)
     else
-      render :new
-    end
+      
+      render :new,locals: {product: new}
+      end
+    
 
   end
 
