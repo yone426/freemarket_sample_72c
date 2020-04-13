@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to user_path(current_user.id)
+      redirect_to root_path
     else
       render :new
     end
