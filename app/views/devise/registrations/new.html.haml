@@ -21,13 +21,13 @@
 
         .field
           - f.label :password ,class: 'form__label'
-          %span  パスワード(7文字以上)
+          %span  パスワード(6文字以上)
         
           = f.password_field :password, autocomplete: "new-password",class:'form__field',required: true
 
         .field
           - f.label :password_confirmation,class: 'form__label'
-          %span パスワード（確認用 7文字以上）
+          %span パスワード（確認用 6文字以上）
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password",required: true,class:'form__field'
 

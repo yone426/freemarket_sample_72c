@@ -4,10 +4,10 @@
     %h2.title 住所情報登録
     .form
       = form_for(@address, url: addresses_path, method: :post)   do |f|
-        
+        = render "devise/shared/error_messages", resource: resource
         .field
           = f.label :zipcode ,class: 'form__label'
-          %span 郵便番号(000-0000)
+          %span 郵便番号(ハイフンなし0000000)
           = f.text_field :zipcode, autofocus: true, autocomplete: "zipcode",class:'form__field',required: true
 
         .field
