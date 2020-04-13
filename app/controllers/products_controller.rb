@@ -72,7 +72,11 @@ class ProductsController < ApplicationController
       currency: 'jpy'	
       )
       @product.update(status: 1)
-      redirect_to root_path
+      if @product.status == 1
+        redirect_to root_path, notice: "#{@product.name}を購入しました"
+      else
+        flash.now[:alert] = "購入に失敗しました。"
+      end
   end
 
   
@@ -85,9 +89,6 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:id])
     @pro = Product.where(category_id: @category.id)
     @image
-    
-    
-
   end
 
   def search
@@ -118,6 +119,5 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
-
 
 end
