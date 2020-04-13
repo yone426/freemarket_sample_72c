@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     collection do
       get  'purchase/:id'=>  'products#purchase', as: 'purchase'
       post 'pay/:id'=>   'products#pay', as: 'pay'
-      get  'done'=> 'products#done', as: 'done'
       get "category"
       get "search"
       get "previous"
