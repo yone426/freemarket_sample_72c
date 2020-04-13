@@ -164,6 +164,15 @@
         margin: 0 auto;
         padding: 24px 60px 60px;
         background: #fff;
+      
+      .comment-list {
+        h4 {
+          background-color: #3BCACE;
+          color: #fff;
+          font-size: 20px;
+        }
+      }
+
       .message-form {
         P {
           padding: 8px;

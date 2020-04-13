@@ -74,12 +74,26 @@
     .comments
       .comments__area
         .comments__area__text
+          .comment-list
+            %h4 　コメント
+            %br
+            - if @comments
+              - @comments.each do |comment|
+                = comment.user.nickname
+                = comment.user.created_at = Time.current.strftime("%Y-%m-%d %H:%M")
+                %br
+                = simple_format(comment.comment)
+                %br
+                %br
+
           .message-form
-            %p相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = form_with(model: @product, local: true) do |form|
-              = form.text_area :comment, class: "message-text"
-            .message-submit
-              = link_to "コメントする","#"
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            -if current_user
+              = form_with(model: [@product, @comment], local: true) do |form|
+                = form.text_area :comment, placeholder: "コメントする", class: "message-text"
+                = form.submit "SEND", class: "message-submit"
+            - else
+              %p※ コメントの投稿には新規登録/ログインが必要です。
     %ul.nav-item
       %li.nav-item__prev
         = link_to "前のページ"

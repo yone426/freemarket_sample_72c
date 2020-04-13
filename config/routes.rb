@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :products do
-    
+    resources :comments, only: :create
+
     collection do
       get  'purchase/:id'=>  'products#purchase', as: 'purchase'
       post 'pay/:id'=>   'products#pay', as: 'pay'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
       get "previous"
       get "next"
     end
+
     member do
       get 'categoryindex'
     end
@@ -29,14 +31,10 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:index, :new, :create, :destroy]
 
-
   resources :users, only: [:show] do
-
     collection do
       get "rogout"
     end
-  end    
-
-  
+  end
 
 end
