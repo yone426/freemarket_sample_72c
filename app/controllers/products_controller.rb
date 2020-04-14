@@ -101,7 +101,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def productsearch
+  def product_search
     @productsearch = params[:productsearch]
     @product = Product.productsearch(params[:productsearch])
     
