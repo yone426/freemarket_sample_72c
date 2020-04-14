@@ -101,6 +101,19 @@ class ProductsController < ApplicationController
     end
   end
 
+  def kensaku
+    @kensaku = params[:kensaku]
+    @product = Product.kensaku(params[:kensaku])
+    
+  if @product.empty?
+    @kensaku = nil
+    @product = Product.all.order("created_at DESC")
+  end
+    
+
+    
+  end
+
   
 
   

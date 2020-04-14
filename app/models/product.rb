@@ -18,4 +18,10 @@ class Product < ApplicationRecord
     self.status = 0
   end
 
+  def self.kensaku(kensaku)
+      Product.where('name LIKE ?', "%#{kensaku}%")
+    
+  end
+
 end
+
