@@ -164,6 +164,28 @@
         margin: 0 auto;
         padding: 24px 60px 60px;
         background: #fff;
+      
+      .comment-list {
+        h4 {
+          background-color: #3BCACE;
+          color: #fff;
+          font-size: 20px;
+        }
+        .comment-box{
+          border-bottom: solid 1px #ccc;
+          padding: 20px 10px;
+          &__name{
+            float: left;
+          }
+          &__date{
+            float: right;
+          }
+          &__text{
+            margin: 10px 20px 0 20px;
+          }
+        }
+      }
+
       .message-form {
         P {
           padding: 8px;
@@ -187,10 +209,7 @@
             line-height: 48px;
             display: block;
             background-color: #AAAAAA;
-            a {
-              text-decoration: none;
-              color: white;
-            }
+            color: white;
           }
         }
       }

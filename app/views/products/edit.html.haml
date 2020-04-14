@@ -10,7 +10,7 @@
           %span.fat 出品画像
           %span.red 必須
         .ten
-          %p最大10枚までアップロードできます
+          %p最大5枚までアップロードできます
           #image-box
             #previews
               - if @product.persisted?
@@ -19,15 +19,18 @@
 
             = f.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
-                = image.file_field :src, class: 'js-file'
-                %br/
-                %span.js-remove 削除
+                %label{for: "product_images_attributes_#{image.index}_src", "data-index" => "#{image.index}"}
+                  = image.file_field :src, class: 'js-file'
+                  %i.fas.fa-camera
+                .js-remove 削除
               - if @product.persisted?
                 = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                
+
             - if @product.persisted?
               .js-file_group{"data-index" => "#{@product.images.count}"}
-                = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                %label.label{for: "js-file"}
+                  = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file', id: 'js-file'
+                  %i.fas.fa-camera
                 .js-remove 削除
 
       .exhibit__all__name
@@ -94,13 +97,6 @@
           .form      
             %span.red ¥
             = f.number_field :price, class:"name_form"
-        .fee    
-          %p#tax 販売手数料（10%）
-          %p#tax -
-        .profit
-          %p#tax 販売利益
-          %p#tax -  
-
 
 
       .exhibit__all__decide

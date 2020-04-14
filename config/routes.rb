@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :products do
-    
+    resources :comments, only: :create
+
     collection do
       get  'purchase/:id'=>  'products#purchase', as: 'purchase'
       post 'pay/:id'=>   'products#pay', as: 'pay'
@@ -23,10 +24,13 @@ Rails.application.routes.draw do
       get "next"
       post 'add' => 'likes#create'
       delete '/add' => 'likes#destroy'
+      get "product_search"
     end
+
     member do
       get 'categoryindex'
     end
+    
   end
 
   resources :cards, only: [:index, :new, :create, :destroy]
@@ -34,12 +38,9 @@ Rails.application.routes.draw do
   resources :likes, only: [:index]
 
   resources :users, only: [:show] do
-
     collection do
       get "rogout"
     end
-  end    
-
-  
+  end
 
 end

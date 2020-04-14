@@ -10,7 +10,7 @@
           %span.fat 出品画像 
           %span.red 必須
         .ten
-          %p最大10枚までアップロードできます
+          %p最大5枚までアップロードできます
           = f.fields_for :images do |image|      
             = render 'form', f: image
 
@@ -68,7 +68,7 @@
             %span.fat 発送までの日数
             %span.red 必須
           .form  
-            = f.select :shippingdate, [ ["１〜２日","１〜２日"], ["３〜４日い", "３〜４日い"], ["４日以上", "４日以上" ] ], prompt: "選択してください",required: true
+            = f.select :shippingdate, [ ["１〜２日","１〜２日"], ["３〜４日", "３〜４日"], ["４日以上", "４日以上" ] ], prompt: "選択してください",required: true
 
       .exhibit__all__price
         %p価格（送料込み）
