@@ -1,25 +1,6 @@
 .mypage
   .mypage__wrraper
-    .side
-      %ul.side__function
-        %li.li_mypage
-          = link_to 'トップページ', root_path ,class: "list"
-        %li 
-          = link_to '出品する', new_product_path,class: "list"
-        %li
-          = link_to '出品状況', "#",class: "list"
-        %li
-          = link_to '購入履歴', "#",class: "list"
-      %p 設定
-      %ul.side__acount 
-        %li
-          = link_to '本人情報設定', edit_user_registration_path,class: "list"
-        %li
-          = link_to 'クレジットカード', new_card_path,class: "list"
-        %li
-          = link_to 'クレジットカード詳細', cards_path, class: "list"
-        %li
-          = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "list"
+    = render partial: 'side'
     .main
       .main__top
         = image_tag asset_path('logo/logo.png'), class: 'main__top__image'

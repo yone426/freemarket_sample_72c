@@ -19,32 +19,30 @@
         }
       }
       &__box{
-        
-        .form__text{
-          margin: 10px 0 0 10px;
-          height: 40px;
-          width: 60vw;
-        }
-      }
-      &__search{
-        .submit{
-          width: 40px;
-          height: 42px;
-          margin: 10px;
-          background-color: #3ccace;
-          color: #fff;
-          font-size: 20px;
+        .productsearch{
+          display: flex;
 
-          
-          .search-icon{
-            text-decoration: none;
-            width: 25px;
-            height: 25px;
-            padding: 15px;
+          &__text{
+            margin: 10px 0 0 10px;
+            height: 40px;
+            width: 60vw;
+            display: block;
+          }
+        
+          &__submit{
+            cursor: pointer;
+            width: 40px;
+            height: 42px;
+            margin: 10px;
             background-color: #3ccace;
+            color: #fff;
+            font-size: 20px;
+            display: block;
           }
         }
       }
+    
+      
       
     }
     &__various{
@@ -56,10 +54,17 @@
         display: flex;
         &__categories{
           padding: 0 30px 0 0;
+          i{
+            color: #3BCACD;
+          }
           .categories{
             color: #333;
             text-decoration: none;
             font-size: 14px;
+            cursor: pointer;
+            &:hover{
+              color: #84D3FC;
+            }
           }
         }
       }
@@ -71,6 +76,9 @@
             color: #333;
             text-decoration: none;
             font-size: 14px;
+            &:hover{
+              color: #84D3FC;
+            }
           }
         }
         &__sign_up{

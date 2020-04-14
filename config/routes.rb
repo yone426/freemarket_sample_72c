@@ -13,31 +13,30 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resources :products do
-    
+    resources :comments, only: :create
+
     collection do
       get  'purchase/:id'=>  'products#purchase', as: 'purchase'
       post 'pay/:id'=>   'products#pay', as: 'pay'
-      get  'done'=> 'products#done', as: 'done'
       get "category"
       get "search"
       get "previous"
       get "next"
+      get "product_search"
     end
+
     member do
       get 'categoryindex'
+
     end
   end
 
   resources :cards, only: [:index, :new, :create, :destroy]
 
-
   resources :users, only: [:show] do
-
     collection do
       get "rogout"
     end
-  end    
-
-  
+  end
 
 end
