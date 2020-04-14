@@ -4,11 +4,11 @@
       .header__box__form__icon
         = link_to (image_tag asset_path('logo/logo.png'), class: 'icon'),root_path
       .header__box__form__box
-        = form_with(url: kensaku_products_path,method: :get,local: true) do |form|
-          .kensaku
-            = form.text_field :kensaku , class: "kensaku__text",required: true
+        = form_with(url: productsearch_products_path,method: :get,local: true) do |form|
+          .productsearch
+            = form.text_field :productsearch , class: "productsearch__text",required: true
             = form.label :submit do
-              = button_tag type: 'submit',disable:true, class: "kensaku__submit" do
+              = button_tag type: 'submit',disable:true, class: "productsearch__submit" do
                 %i.fas.fa-search
     .header__box__various
       .header__box__various__left

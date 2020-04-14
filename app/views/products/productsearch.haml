@@ -1,9 +1,10 @@
+
 = render partial: 'top_header'
 .categ
   .categ__title
     %h1.categ__title__jaru 
-      -if @kensaku
-        ="#{@kensaku}の検索結果"
+      -if @productsearch
+        ="#{@productsearch}の検索結果"
       -else
         ="お探しの商品はございません"
   -unless @product.empty?
@@ -18,7 +19,7 @@
               = product.name
   - else
     %h1.categ__title__no
-      ="#{@kensaku}は現在出品されていません"
+      ="#{@productsearch}は現在出品されていません"
           
         
 = render partial: 'top_footer'

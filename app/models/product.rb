@@ -18,8 +18,8 @@ class Product < ApplicationRecord
     self.status = 0
   end
 
-  def self.kensaku(kensaku)
-      Product.where('name LIKE ?', "%#{kensaku}%")
+  def self.productsearch(productsearch)
+      Product.where('name LIKE ?', "%#{productsearch}%")
     
   end
 
