@@ -1,7 +1,14 @@
 class CommentsController < ApplicationController
   def create
     comment = Comment.create(comment_params)
-    redirect_to "/products/#{comment.product.id}"
+    if comment.save
+      flash[:notice] = "コメントを投稿しました。"
+      redirect_to product_path(comment.product.id)
+    else
+      flash[:notice] = "コメント欄が空白です。"
+      redirect_to product_path(comment.product.id)
+      
+    end
   end
 
   private
