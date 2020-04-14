@@ -1,25 +1,31 @@
 .mypage
   .mypage__wrraper
     = render partial: 'users/side'
-    .content__box
-      .content__credit-cards
-        %h3 クレジットカード詳細
-        - if @card.present?
-          %ul.content__credit-cards__list
-            %li
-              = form_with url: card_path(@card.id), method: :delete, local: true, id: 'charge-form' do |f|
-                .content__credit-cards__list--pay-num
-                  %span Card number
-                  = "**** **** **** " + @card_information.last4
-                .content__credit-cards__list--pay-num
-                  - exp_month = @card_information.exp_month.to_s
-                  - exp_year = @card_information.exp_year.to_s.slice(2,3)
-                  = exp_month + " / " + exp_year
-                %input{type: "hidden", name: "card_id", value: ""}
-                = f.submit "削除する", {class: "content__credit-cards__list__remove"}
-                - if flash[:notice]
-                  .alert.alert-success
-                  = flash[:notice]
-                - if flash[:alert]
-                  .alert.alert-dange
-                  = flash[:alert]
+    .main
+      .main__top
+        = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
+        .main__top__name
+          %span 
+            =current_user.nickname
+      .content__box
+        .content__credit-cards
+          %h3 クレジットカード詳細
+          - if @card.present?
+            %ul.content__credit-cards__list
+              %li
+                = form_with url: card_path(@card.id), method: :delete, local: true, id: 'charge-form' do |f|
+                  .content__credit-cards__list--pay-num
+                    %span Card number
+                    = "**** **** **** " + @card_information.last4
+                  .content__credit-cards__list--pay-num
+                    - exp_month = @card_information.exp_month.to_s
+                    - exp_year = @card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                  %input{type: "hidden", name: "card_id", value: ""}
+                  = f.submit "削除する", {class: "content__credit-cards__list__remove"}
+                  - if flash[:notice]
+                    .alert.alert-success
+                    = flash[:notice]
+                  - if flash[:alert]
+                    .alert.alert-dange
+                    = flash[:alert]

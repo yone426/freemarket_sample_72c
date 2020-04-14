@@ -15,6 +15,6 @@
     %li 
       = link_to 'クレジットカード詳細', cards_path, class: "list"
     %li
-      = link_to 'お気に入り一覧', "#", class: "list"
+      = link_to 'お気に入り一覧', likes_users_path, class: "list"
     %li
       = link_to "ログアウト",destroy_user_session_path,method: :delete,class: "list"
