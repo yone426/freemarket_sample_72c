@@ -36,6 +36,8 @@ class ProductsController < ApplicationController
     @images = @product.images.drop(1)
     @area = @product.prefecture
     
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
 
   end
 
