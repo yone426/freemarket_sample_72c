@@ -1,0 +1,25 @@
+
+= render partial: 'top_header'
+.categ
+  .categ__title
+    %h1.categ__title__jaru 
+      -if @productsearch
+        ="#{@productsearch}の検索結果"
+      -else
+        ="お探しの商品はございません"
+  -unless @product.empty?
+    .categ__main
+      -@product.each do |product|
+        =link_to product_path(product.id),class:"items"  do
+          = image_tag asset_path(product.images[0].src),class: 'items__box'
+          .item
+            %span{class:'item__price'}
+              ="￥#{product.price}"
+            %span{class: 'item__name'}
+              = product.name
+  - else
+    %h1.categ__title__no
+      ="#{@productsearch}は現在出品されていません"
+          
+        
+= render partial: 'top_footer'

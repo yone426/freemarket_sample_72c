@@ -21,9 +21,11 @@ Rails.application.routes.draw do
       get "search"
       get "previous"
       get "next"
+      get "product_search"
     end
     member do
       get 'categoryindex'
+
     end
   end
 
