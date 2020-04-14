@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
     @pickup_products = Product.where(category_id: 202, status:0).all.order("created_at DESC").page(params[:page]).per(5)
 
     @products = Product.all
-  
   end
 
   def new
@@ -30,7 +29,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-
     @product = Product.find(params[:id])
     @image = @product.images.first
     @images = @product.images.drop(1)

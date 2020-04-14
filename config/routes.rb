@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'likes/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
       get "search"
       get "previous"
       get "next"
+      post 'add' => 'likes#create'
+      delete '/add' => 'likes#destroy'
     end
     member do
       get 'categoryindex'

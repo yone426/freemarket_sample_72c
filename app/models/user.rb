@@ -6,9 +6,10 @@ class User < ApplicationRecord
          
   has_many :products 
   has_many :comments
-  has_many :likes
   has_one :address
   has_one :card
+  has_many :likes
+  has_many :like_productss, through: :likes, source: :product
 
   KATAKANA = /\A[ァ-ヶー－]+\z/
   FULLNAME =/\A[ぁ-んァ-ン一-龥]/
@@ -19,4 +20,5 @@ class User < ApplicationRecord
   validates :fullname, format: {with:FULLNAME}
   validates :fullname_katakana, format: {with:KATAKANA}
   validates :phone_number,numericality: :only_integer
+
 end
