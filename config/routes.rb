@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/new'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -31,13 +30,13 @@ Rails.application.routes.draw do
   end
 
   resources :cards, only: [:index, :new, :create, :destroy]
-
+  
+  resources :likes, only: [:index]
 
   resources :users, only: [:show] do
 
     collection do
       get "rogout"
-      get "likes"
     end
   end    
 
