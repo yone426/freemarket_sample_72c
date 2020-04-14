@@ -104,14 +104,10 @@ class ProductsController < ApplicationController
   def product_search
     @productsearch = params[:productsearch]
     @product = Product.productsearch(params[:productsearch])
-    
-  if @product.empty?
-    @productsearch = nil
-    @product = Product.all.order("created_at DESC")
-  end
-    
-
-    
+      if @product.empty?
+        @productsearch = nil
+        @product = Product.all.order("created_at DESC")
+      end
   end
 
   
