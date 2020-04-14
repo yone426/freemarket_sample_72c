@@ -76,15 +76,16 @@
         .comments__area__text
           .comment-list
             %h4 　コメント
-            %br
             - if @comments
               - @comments.each do |comment|
-                = comment.user.nickname
-                = comment.user.created_at = Time.current.strftime("%Y-%m-%d %H:%M")
-                %br
-                = simple_format(comment.comment)
-                %br
-                %br
+                .comment-box
+                  .comment-box__name
+                    = comment.user.nickname
+                  .comment-box__date
+                    = comment.user.created_at = Time.current.strftime("%Y-%m-%d %H:%M")
+                  %br
+                  .comment-box__text
+                    = simple_format(comment.comment)
 
           .message-form
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

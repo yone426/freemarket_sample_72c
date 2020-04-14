@@ -171,6 +171,19 @@
           color: #fff;
           font-size: 20px;
         }
+        .comment-box{
+          border-bottom: solid 1px #ccc;
+          padding: 20px 10px;
+          &__name{
+            float: left;
+          }
+          &__date{
+            float: right;
+          }
+          &__text{
+            margin: 10px 20px 0 20px;
+          }
+        }
       }
 
       .message-form {
@@ -196,10 +209,7 @@
             line-height: 48px;
             display: block;
             background-color: #AAAAAA;
-            a {
-              text-decoration: none;
-              color: white;
-            }
+            color: white;
           }
         }
       }
