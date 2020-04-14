@@ -7,5 +7,16 @@
         .main__top__name
           %span 
             =current_user.nickname
-      .main-title
+      .main__button
         %h3 お気に入り一覧
+      .main__list
+        -# -@likes.each do |like|
+          -# =link_to product_path(product.id), class:'list' do
+          -#   = image_tag asset_path(product.images[0].src),class: 'list__image'
+          -#   %ul.list__product
+          -#     %li.list__product__title
+          -#       %span
+          -#         =product.name 
+          -#     %li.list__product__content
+          -#       %span
+          -#         =product.details
