@@ -88,7 +88,7 @@ gem 'font-awesome-sass'
 gem 'pry-rails'
 gem "jquery-rails"
 gem 'active_hash'
-
+gem 'ransack'
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'ancestry'
