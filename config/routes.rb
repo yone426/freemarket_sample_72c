@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
     delete 'destroy_user_session', to: 'users/sessions#destroy'
-
   end
 
   root to: "products#index"
@@ -27,11 +26,13 @@ Rails.application.routes.draw do
 
     member do
       get 'categoryindex'
-
     end
+    
   end
 
   resources :cards, only: [:index, :new, :create, :destroy]
+  
+  resources :likes, only: [:index, :create, :destroy]
 
   resources :users, only: [:show] do
     collection do

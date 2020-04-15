@@ -1,0 +1,22 @@
+.mypage
+  .mypage__wrraper
+    = render partial: 'users/side'
+    .main
+      .main__top
+        = image_tag asset_path('logo/logo.png'), class: 'main__top__image'
+        .main__top__name
+          %span 
+            = current_user.nickname
+      .main__button
+        %h3 お気に入り一覧
+      .main__list
+        -@likes.each do |like|
+          =link_to product_path(like.product.id), class:'list' do
+            = image_tag asset_path(like.product.images[0].src),class: 'list__image'
+            %ul.list__product
+              %li.list__product__title
+                %span
+                  =like.product.name 
+              %li.list__product__content
+                %span
+                  =like.product.details

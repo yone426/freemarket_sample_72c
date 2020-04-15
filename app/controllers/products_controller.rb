@@ -7,15 +7,12 @@ class ProductsController < ApplicationController
   def index
     @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
     @pickup_products = Product.where(category_id: 202, status:0).all.order("created_at DESC").page(params[:page]).per(5)
-
     @products = Product.all
-  
   end
 
   def new
     @product = Product.new
     @product.images.new
-
   end
   
 
@@ -26,16 +23,13 @@ class ProductsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def show
-
     @product = Product.find(params[:id])
     @image = @product.images.first
     @images = @product.images.drop(1)
     @area = @product.prefecture
-    
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
 
@@ -82,8 +76,6 @@ class ProductsController < ApplicationController
       end
   end
 
-  
-
   def category 
     @parents = Category.all.where(ancestry: nil).limit(13)
   end
@@ -112,10 +104,6 @@ class ProductsController < ApplicationController
         @product = Product.all.order("created_at DESC")
       end
   end
-
-  
-
-  
 
   private
   
