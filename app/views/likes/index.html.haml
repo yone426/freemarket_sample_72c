@@ -11,13 +11,12 @@
         %h3 お気に入り一覧
       .main__list
         -@likes.each do |like|
-          -# = like.name
-        -# =link_to product_path(product.id), class:'list' do
-        -#   = image_tag asset_path(product.images[0].src),class: 'list__image'
-        -#     %ul.list__product
-        -#       %li.list__product__title
-        -#         %span
-        -#           =product.name 
-        -#       %li.list__product__content
-        -#         %span
-        -#           =product.details me in app/views/likes/index.html.haml
+          =link_to product_path(like.product.id), class:'list' do
+            = image_tag asset_path(like.product.images[0].src),class: 'list__image'
+            %ul.list__product
+              %li.list__product__title
+                %span
+                  =like.product.name 
+              %li.list__product__content
+                %span
+                  =like.product.details

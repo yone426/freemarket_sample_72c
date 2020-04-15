@@ -5,7 +5,6 @@ class LikesController < ApplicationController
     # @products = @user.products.order("created_at DESC")
     @user = current_user
     @likes = Like.where(user_id: @user.id).all
-    # @likes = Product.where(user_id: @user.id).all
   end
 
   def create
