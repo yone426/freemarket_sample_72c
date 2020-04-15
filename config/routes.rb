@@ -21,8 +21,6 @@ Rails.application.routes.draw do
       get "search"
       get "previous"
       get "next"
-      post 'add' => 'likes#create'
-      delete '/add' => 'likes#destroy'
       get "product_search"
     end
 
@@ -34,7 +32,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:index, :new, :create, :destroy]
   
-  resources :likes, only: [:index]
+  resources :likes, only: [:index, :create, :destroy]
 
   resources :users, only: [:show] do
     collection do
