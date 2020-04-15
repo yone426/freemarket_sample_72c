@@ -8,8 +8,9 @@
           .productsearch
             = form.text_field :productsearch , class: "productsearch__text",required: true
             = form.label :submit do
-              = button_tag type: 'submit',disable:true, class: "productsearch__submit" do
+              = button_tag type: 'submit', controller: "products",method: :get,class: "productsearch__submit" do
                 %i.fas.fa-search
+                
     .header__box__various
       .header__box__various__left
       
