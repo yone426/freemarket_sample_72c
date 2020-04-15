@@ -19,4 +19,10 @@ class Product < ApplicationRecord
     self.status = 0
   end
 
+  def self.productsearch(productsearch)
+      Product.where('name LIKE ?', "%#{productsearch}%")
+    
+  end
+
 end
+

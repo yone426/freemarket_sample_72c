@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :email,:nickname,:fullname,:fullname_katakana,:phone_number,:birthday, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: true,format: { with: VALID_EMAIL_REGEX }
-  validates :password,:password_confirmation, length:{maximum:7}
+  validates :password,:password_confirmation, length:{minimum:6}
   validates :fullname, format: {with:FULLNAME}
   validates :fullname_katakana, format: {with:KATAKANA}
   validates :phone_number,numericality: :only_integer

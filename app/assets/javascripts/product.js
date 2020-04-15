@@ -2,10 +2,14 @@ $(function(){
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group" >
-                    <input class="js-file" type="file"
-                    name="product[images_attributes][${num}][src]"
-                    id="product_images_attributes_${num}_src"><br>
+    const html = `<div data-index="${num}" class="js-file_group">
+                    <label class='label'>
+                      <input class="js-file" type="file"
+                      name="product[images_attributes][${num}][src]"
+                      id="product_images_attributes_${num}_src">
+                      <i class='fas fa-camera'></i>
+                    </label>
+                    <br>
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;
@@ -25,7 +29,8 @@ $(document).on('turbolinks:load', ()=> {
   $('.hidden-destroy').hide();
 
   $('#image-box').on('change', '.js-file', function(e) {
-    const targetIndex = $(this).parent().data('index');
+    const targetIndex = $(this).parent().parent().data('index');
+    console.log(targetIndex)
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
@@ -36,6 +41,7 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
+      //ここに制限を記述する。
       $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する

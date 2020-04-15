@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to user_path(current_user.id)
+      redirect_to root_path
     else
       render :new
     end
@@ -30,6 +30,9 @@ class ProductsController < ApplicationController
     @image = @product.images.first
     @images = @product.images.drop(1)
     @area = @product.prefecture
+    @comment = Comment.new
+    @comments = @product.comments.includes(:user)
+
   end
 
   def edit
@@ -90,6 +93,15 @@ class ProductsController < ApplicationController
         #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
+  end
+
+  def product_search
+    @productsearch = params[:productsearch]
+    @product = Product.productsearch(params[:productsearch])
+      if @product.empty?
+        @productsearch = nil
+        @product = Product.all.order("created_at DESC")
+      end
   end
 
   private

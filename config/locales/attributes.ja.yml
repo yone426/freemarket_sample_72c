@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      address:
+        zipcode: 郵便番号
+        address: 番地
+        municipalities: 市町村
