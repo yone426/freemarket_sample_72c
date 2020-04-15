@@ -1,27 +1,21 @@
 class LikesController < ApplicationController
 
   def index
-    @user = current_user
-    @likes = Like.where(user_id: @user.id).all
+    @likes = Like.where(user_id: current_user.id).all
   end
 
   def create
-    user = current_user
-    product = Product.find(params[:product_id])
-    if Like.create(user_id: user.id,product_id:product.id)
-    redirect_to product_path(product.id)
+    if Like.create(user_id: current_user.id,product_id: params[:product_id])
+      redirect_to product_path(params[:product_id])
     else
-      redirect_to root_url_path
+      redirect_to root_path
     end
-
   end
 
   def destroy
-    user = current_user
-    product = Product.find(params[:product_id])
-    if like = Like.find_by(user_id: user.id,product_id:product.id)
+    if like = Like.find_by(user_id: current_user.id,product_id:params[:product_id])
       like.delete
-      redirect_to product_path(product.id)
+      redirect_to product_path(params[:product_id])
     else
       redirect_to root_path
     end
