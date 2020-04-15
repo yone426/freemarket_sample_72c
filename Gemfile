@@ -95,3 +95,4 @@ gem 'ancestry'
 
 
 gem 'fog-aws'
+gem 'gretel'
