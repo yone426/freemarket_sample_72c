@@ -4,7 +4,7 @@
       .header__box__form__icon
         = link_to (image_tag asset_path('logo/logo.png'), class: 'icon'),root_path
       .header__box__form__box
-        = form_with(url: product_search_products_path,method: :get,local: true) do |form|
+        = form_with(url: product_search_products_path, method: :get,local: true) do |form|
           .productsearch
             = form.text_field :productsearch , class: "productsearch__text",required: true
             = form.label :submit do
