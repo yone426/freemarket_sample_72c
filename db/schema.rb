@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_024053) do
+ActiveRecord::Schema.define(version: 2020_04_16_074606) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -57,12 +57,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_024053) do
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
+    t.integer "user_id"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_likes_on_product_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,6 +79,15 @@ ActiveRecord::Schema.define(version: 2020_04_08_024053) do
     t.string "city"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,4 +109,5 @@ ActiveRecord::Schema.define(version: 2020_04_08_024053) do
 
   add_foreign_key "images", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "sns_credentials", "users"
 end
