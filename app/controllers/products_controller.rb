@@ -99,11 +99,20 @@ class ProductsController < ApplicationController
   def product_search
     @productsearch = params[:productsearch]
     @product = Product.productsearch(params[:productsearch])
-      if @product.empty?
-        @productsearch = nil
-        @product = Product.all.order("created_at DESC")
-      end
+    if @product.empty?
+      @productsearch = nil
+      @product = Product.all.order("created_at DESC")
+      
+    end
   end
+
+  def conditional_search
+    @q = Product.ransack(params[:q]) #ランサックの検索条件を受信する
+    @product = @q.result(distinct: true)  #詳細検索で複数のレコードを所得した際に重複したものを一つにまとめるメソッド
+    
+  end
+
+ 
 
   private
   

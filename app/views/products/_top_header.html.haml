@@ -17,6 +17,9 @@
         .header__box__various__left__categories
           %i.fas.fa-bars
           = link_to "カテゴリ一から探す",category_products_path, class: "categories"
+        .header__box__various__left__categories
+          %i.fas.fa-search-plus
+          = link_to "詳細検索",conditional_search_products_path, class: "categories"
       - if user_signed_in?
         .header__box__various__right
           .header__box__various__right__login
