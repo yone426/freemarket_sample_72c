@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get "previous"
       get "next"
       get "product_search"
+      get "conditional_search"
     end
 
     member do
