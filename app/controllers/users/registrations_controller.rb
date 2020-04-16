@@ -35,13 +35,13 @@ def create_address
   end
   @user.build_address(@address.attributes)
 
-  begin
-    @user.save
-  rescue 
+  
+  if  @user.save
+    sign_in(:user, @user)
+    redirect_to root_path
+  else
     render :new
   end
-  sign_in(:user, @user)
-  redirect_to root_path
 end
 
 
