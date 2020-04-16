@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :address
   has_one :card
   has_many :likes
-  has_many :like_productss, through: :likes, source: :product
+  has_many :like_products, through: :likes, source: :product
 
   KATAKANA = /\A[ァ-ヶー－]+\z/
   FULLNAME =/\A[ぁ-んァ-ン一-龥]/
