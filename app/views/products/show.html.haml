@@ -67,13 +67,19 @@
             %h2
               = safe_join(@product.details.split("\n"),tag(:br))
         .item-btn
-          .item-btn__left
-            - if !Like.exists?(user_id:current_user.id,product_id:@product.id)
-              = link_to "お気に入り", likes_path(product_id: @product.id),method: :post, remote: true
-            - else
-              = link_to "お気に入り解除", like_path(product_id: @product.id),method: :delete, remote: true
-          .item-btn__right
-            = link_to "不適切な商品の報告","#"
+          - if user_signed_in?
+            .item-btn__left
+              - if !Like.exists?(user_id:current_user.id,product_id:@product.id)
+                = link_to icon('far', 'star') + "お気に入り追加", likes_path(product_id: @product.id),method: :post, remote: true
+              - else
+                = link_to icon('fas', 'star') + "お気に入り解除", like_path(product_id: @product.id),method: :delete, remote: true
+            .item-btn__right
+              = link_to "不適切な商品の報告","#"
+          - else
+            .item-btn__left
+            .item-btn__right
+              = link_to "不適切な商品の報告","#"
+
     .comments
       .comments__area
         .comments__area__text
