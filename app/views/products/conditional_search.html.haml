@@ -1,50 +1,53 @@
 
 = render partial: 'top_header'
-.product_search
+.conditional_search
   .search
-  .search__title 詳細検索
-  = search_form_for(@q, url:product_search_products_path ) do |f|
-    = f.label :name, 'キーワード', {class:'search__name'}
-    = f.search_field :name_cont
+    .search__box
+      .search__box__title 詳細検索
+      = search_form_for(@q, url:conditional_search_products_path ) do |f|
+        = f.label :name_cont, 'キーワード', {class:'search__box__name'}
+        = f.search_field :name_cont
 
-    .form{id: 'formId'}
-      = f.collection_select :category_id_eq, Category.all.where(ancestry: nil).limit(13), :id, :name,{prompt: "選択してください"}, name: '',id: "parent-form",selected:true
-    
-    =f.label :price, "価格",{class:"search__name"}
-    = f.number_field :price_gteq
-    %p 以上
-    = f.number_field :price_lt
-    %p 未満
+        .form{id: 'formId'} 
+          =f.label :category_id_eq, "カテゴリー"
+          %br/
+          = f.collection_select :category_id_eq, Category.all.where(ancestry: nil).limit(13), :id, :name,{prompt: "選択してください"}, name: '',id: "parent-form",selected:true
+        
+        =f.label :price, "価格",{class:"search__box__name"}
+        = f.number_field :price_gteq
+        %p 以上
+        = f.number_field :price_lt
+        %p 未満
 
-    =f.label :condition,'商品状態',{class:"search__name"}
-    %br/
-    =f.radio_button :conditon_eq, " ",{:checked => true}
-    %span　選択してください
-    %br/
-    =f.radio_button :condition_eq, "新品"
-    %span  新品
-    %br/
-    =f.radio_button :condition_eq, "未使用に近い"
-    %span  未使用に近い
-    %br/
-    =f.radio_button :condition_eq, "やや傷あり"
-    %span  やや傷あり
-    %br/
-    =f.radio_button :condition_eq, "全体的に傷あり"
-    %span  全体的に傷あり
-    =f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, prompt: "選択してください"
-
-    =f.submit "詳細検索"
+        =f.label :condition,'商品状態',{class:"search__box__name"}
+        
+        =f.radio_button :conditon_eq, " ",{:checked => true}
+        %span　選択してください
+        %br/
+        =f.radio_button :condition_eq, "新品"
+        %span  新品
+        %br/
+        =f.radio_button :condition_eq, "未使用に近い"
+        %span  未使用に近い
+        %br/
+        =f.radio_button :condition_eq, "やや傷あり"
+        %span  やや傷あり
+        %br/
+        =f.radio_button :condition_eq, "全体的に傷あり"
+        %span  全体的に傷あり
+        %br/
+        =f.label :prefecture_id_eq,"発送元の地域"
+        %br/
+        =f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, prompt: "選択してください",class:"search__box__name"
+        %br/
+        =f.submit "詳細検索",class:"search__box__save"
   .categ
     .categ__title
       %h1.categ__title__jaru 
-        -if @productsearch
-          ="#{@productsearch}の検索結果"
-        -else
-          ="お探しの商品はございません"
-    -unless @product.empty?
+        ="検索結果"
+    -unless @result.empty?
       .categ__main
-        -@product.each do |product|
+        -@result.each do |product|
           =link_to product_path(product.id),class:"items"  do
             = image_tag asset_path(product.images[0].src),class: 'items__box'
             .item
@@ -54,6 +57,6 @@
                 = product.name
     - else
       %h1.categ__title__no
-        ="#{@productsearch}は現在出品されていません"
+        ="お探しの商品は現在出品されていません"
           
 = render partial: 'top_footer'

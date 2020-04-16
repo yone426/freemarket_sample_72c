@@ -108,7 +108,12 @@ class ProductsController < ApplicationController
 
   def conditional_search
     @q = Product.ransack(params[:q]) #ランサックの検索条件を受信する
-    @product = @q.result(distinct: true)  #詳細検索で複数のレコードを所得した際に重複したものを一つにまとめるメソッド
+    if @q
+      @result = @q.result(distinct: true)  #詳細検索で複数のレコードを所得した際に重複したものを一つにまとめるメソッド
+      
+    else 
+      @result = nil
+    end
     
   end
 
