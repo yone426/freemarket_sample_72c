@@ -2,9 +2,11 @@
   = link_to image_tag(asset_path('logo/logo.png'), class: 'signup_wrapper__image'), root_path
   .signup_wrapper__form
     %h2.title ログイン
+    .sns1    
+      = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, class: 'facebook', method: :post
+    .sns2  
+      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class:'google', method: :post
     .form
-      = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
-      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           = f.label :email ,class: 'form__label'

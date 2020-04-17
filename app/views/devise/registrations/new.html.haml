@@ -3,9 +3,11 @@
   = link_to image_tag(asset_path('logo/logo.png'), class: 'signup_wrapper__image'), root_path
   .signup_wrapper__form
     %h2.title 新規登録
+    .sns1    
+      = link_to 'Facebookで登録する', user_facebook_omniauth_authorize_path, class: 'facebook', method: :post
+    .sns2  
+      = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path, class:'google', method: :post
     .form
-      = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
-      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
       = form_for(@user,url: user_registration_path) do |f|
         = render "devise/shared/error_messages", resource: resource
         .field
