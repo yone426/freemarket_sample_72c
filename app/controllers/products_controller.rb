@@ -47,8 +47,6 @@ class ProductsController < ApplicationController
     redirect_to :edit	
   end	
 
-
-
   def update	
     if @product.update(product_params)
       redirect_to root_path
@@ -59,9 +57,6 @@ class ProductsController < ApplicationController
 
   def purchase
     @card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    @card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def pay
