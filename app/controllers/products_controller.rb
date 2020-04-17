@@ -58,21 +58,23 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    
+    @card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def pay
+    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     Payjp::Charge.create(
       amount: @product.price, # 決済する値段
-      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      :customer => card.customer_id, # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'	
       )
       @product.update(status: 1)
       if @product.status == 1
-        redirect_to root_path, notice: "#{@product.name}を購入しました"
-      else
-        flash.now[:alert] = "購入に失敗しました。"
+        redirect_to root_path, notice: "#{@product.name}の購入を完了しました"
       end
   end
 
