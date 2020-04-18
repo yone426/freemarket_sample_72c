@@ -10,7 +10,6 @@
             = form.label :submit do
               = button_tag type: 'submit', controller: "products",method: :get,class: "productsearch__submit" do
                 %i.fas.fa-search
-                
     .header__box__various
       .header__box__various__left
       
@@ -26,7 +25,6 @@
             = current_user.fullname
           .header__box__various__right__login
             = link_to "マイページ", user_path(current_user.id), class: "login"
-      
       - else      
         .header__box__various__right
           .header__box__various__right__login

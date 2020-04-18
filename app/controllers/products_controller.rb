@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:edit,:destroy,:update, :purchase, :pay]
 
   def index
-    @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(5)
-    @pickup_products = Product.where(category_id: 202, status:0).all.order("created_at DESC").page(params[:page]).per(5)
+    @new_products = Product.where(status: 0).order("created_at DESC").page(params[:page]).per(6)
+    @pickup_products = Product.where(category_id: 202, status:0).all.order("created_at DESC").page(params[:page]).per(6)
     @products = Product.all
   end
 
@@ -32,7 +32,6 @@ class ProductsController < ApplicationController
     @area = @product.prefecture
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
-
   end
 
   def edit
@@ -47,8 +46,6 @@ class ProductsController < ApplicationController
     redirect_to :edit	
   end	
 
-
-
   def update	
     if @product.update(product_params)
       redirect_to root_path
@@ -58,21 +55,20 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    
+    @card = Card.where(user_id: current_user.id).first
   end
 
   def pay
+    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     Payjp::Charge.create(
       amount: @product.price, # 決済する値段
-      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+      :customer => card.customer_id, # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'	
       )
       @product.update(status: 1)
       if @product.status == 1
-        redirect_to root_path, notice: "#{@product.name}を購入しました"
-      else
-        flash.now[:alert] = "購入に失敗しました。"
+        redirect_to root_path, notice: "#{@product.name}の購入を完了しました"
       end
   end
 
@@ -102,7 +98,6 @@ class ProductsController < ApplicationController
     if @product.empty?
       @productsearch = nil
       @product = Product.all.order("created_at DESC")
-      
     end
   end
 
@@ -110,21 +105,16 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q]) #ランサックの検索条件を受信する
     if @q
       @result = @q.result(distinct: true)  #詳細検索で複数のレコードを所得した際に重複したものを一つにまとめるメソッド
-      
     else 
       @result = nil
     end
-    
   end
 
- 
-
   private
-  
     def set_category
       @parents = Category.all.where(ancestry: nil).limit(13)
     end
-
+    
     def product_params
       params.require(:product).permit(:details, :name, :category_id, :price, :condition, :exhibition, :shippingarea, :shippingdate,:prefecture_id,:city, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
 
@@ -133,5 +123,4 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
-
 end

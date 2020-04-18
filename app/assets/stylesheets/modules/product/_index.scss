@@ -21,29 +21,24 @@
       &__box{
         .productsearch{
           display: flex;
-
           &__text{
             margin: 10px 0 0 10px;
             height: 40px;
             width: 60vw;
             display: block;
-          }
-        
+          }      
           &__submit{
             cursor: pointer;
             width: 40px;
             height: 42px;
             margin: 10px;
-            background-color: #3ccace;
+            background-color: $mainColor;
             color: #fff;
             font-size: 20px;
             display: block;
           }
         }
       }
-    
-      
-      
     }
     &__various{
       display: flex;
@@ -55,7 +50,7 @@
         &__categories{
           padding: 0 30px 0 0;
           i{
-            color: #3BCACD;
+            color: $mainColor;
           }
           .categories{
             color: #333;
@@ -143,7 +138,7 @@
     &__bar{
       width: 70px;
       height: 4px;
-      background-color: #3ccace;
+      background-color: $mainColor;
       margin: 0 auto;
       margin-top: 15px;
     }
@@ -160,7 +155,7 @@
             top: 0;
             left: 0;
             font-size: 30px;
-            background-color: #3ccace;
+            background-color: $mainColor;
             color: #fff;
             padding: 10px 20px;
           }
@@ -169,7 +164,7 @@
           display: flex;
           
           &__left{
-            color: #3ccace;
+            color: $mainColor;
             font-weight: bold;
             font-size: 24px;
             line-height: 50px;
@@ -227,7 +222,7 @@
       &__bar{
       width: 70px;
       height: 4px;
-      background-color: #3ccace;
+      background-color: $mainColor;
       margin: 0 auto;
       margin-top: 15px;
       }
@@ -239,8 +234,6 @@
       &__list{
         width: 28%;
         position: relative;
-        &__image{
-        }
         &__title{
           display: flex;
           font-weight: bold;
@@ -265,12 +258,12 @@
     &__sub{
       font-size: 24px;
       font-weight: bold;
-      color: #3ccace;
+      color: $mainColor;
       text-align: center;
       margin-bottom: 10px;
       .new-item-link{
         text-decoration: none;
-        color:#3ccacd;
+        color: $mainColor;
       }
     }
     &__box{
@@ -278,7 +271,7 @@
       .product{
         &__image{
           .photo{
-          width: 219px;
+          width: 221px;
           height: 150px;
           }
         }
@@ -286,21 +279,14 @@
           display: flex;
           &__box{
             padding: 0 10px;
-            width: 205px;
+            width: 202px;
             background-color: #fff;
-            &__name{
-            }
+            margin-right: 5px;
             &__price{
               justify-content: space-between;
               display: flex;
-              .price{
-
-              }
               .star{
                 display: flex;
-                .like{
-
-                }
               }
             }
             &__tax{
@@ -310,16 +296,14 @@
         }
       }
     }
-
   }
   .pickup_products{
-    padding: 100px 0 100px 0;
+    padding: 100px 0 50px 0;
     background-color: rgb(248, 248, 248);
     &__title{
       text-align: center;
       font-size: 28px;
       font-weight: bold;
-      
     }
     &__sub{
       font-size: 24px;
@@ -327,7 +311,7 @@
       color: #3ccace;
       text-align: center;
       margin-bottom: 10px;
-      .mens-item-link{
+      .pickup-item-link{
         text-decoration: none;
         color:#3ccacd;
       }
@@ -337,7 +321,7 @@
       .product{
         &__image{
           .photo{
-          width: 219px;
+          width: 221px;
           height: 150px;
           }
         }
@@ -345,27 +329,20 @@
           display: flex;
           &__box{
             padding: 0 10px;
-            width: 205px;
+            width: 202px;
             background-color: #fff;
-            &__name{
-            }
+            margin-right: 5px;
             &__price{
               justify-content: space-between;
               display: flex;
-              .price{
-
-              }
               .star{
                 display: flex;
-                .like{
-                  
-                }
               }
             }
             &__tax{
               font-size: 10px;
             }
-          }  
+          }
         }
       }
     }
@@ -489,7 +466,7 @@
   .new-link{
     border-radius: 50%;
     padding: 75px ;
-    background-color: #3ccace;
+    background-color: $mainColor;
     text-decoration: none;
     position: relative;
     color: #fff;

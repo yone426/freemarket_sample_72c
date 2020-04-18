@@ -4,16 +4,15 @@
       = link_to 'トップページ', root_path ,class: "list"
     %li 
       = link_to '出品する', new_product_path,class: "list"
-    %li
-      = link_to '購入履歴', "#",class: "list"
   %p 設定
   %ul.side__acount 
     %li
       = link_to '本人情報設定', edit_user_registration_path,class: "list"
     %li
-      = link_to 'クレジットカード登録', new_card_path,class: "list"
-    %li 
-      = link_to 'クレジットカード詳細', cards_path, class: "list"
+      - if @card.blank?
+        = link_to 'クレジットカード登録', new_card_path,class: "list"
+      -else
+        = link_to 'クレジットカード詳細', cards_path, class: "list"
     %li
       = link_to 'お気に入り一覧', likes_path, class: "list"
     %li

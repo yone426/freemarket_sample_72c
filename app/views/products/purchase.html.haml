@@ -26,41 +26,28 @@
           .payment-amount__top__price
             = @product.price
 
-      -#   .payment-amount__point-text
-      -#     %p ポイントを使用 (所持ポイント: P0)
-
-      -# .payment-method
-      -#   .payment-method__top
-      -#     .payment-method__top__left
-      -#       %p 支払い方法
-      -#     .payment-method__top__right
-      -#       %p 変更する
-      -#   .card-infomation
-      -#     %p クレジットカード
-      -#     .number
-      -#       %p ************1234
-      -#     .date
-      -#       %p 有効期限 01 / 23
-      -#     .icon
-            -# FontAwsome
       .shipping-adress
         .shipping-adress__top
           .shipping-adress__top__left
             %p 配送先
           .shipping-adress__top__right
-            %p 変更する
         .postal-code
-          %p 〒000-0000
+          %p 
+            〒
+            = @product.user.address.zipcode
         .adress
+          = @product.user.address.municipalities
+          = @product.user.address.address
         .name
-          = @product.name
+          = @product.user.nickname
 
       .bottom-content
-        .attention-text
-          %p 郵便局/コンビニ受取をご希望の方は、購入後、取引画面から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
         .purchase-btn
-          = form_tag(action: :pay, method: :post) do
-            :plain
-              <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_7cc71c15790e0cce7327840d"></script>
-         
+          - if @card.blank?
+            = form_tag(action: :pay, method: :post) do
+              :plain
+                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_7cc71c15790e0cce7327840d"></script>
+          -else
+            = form_tag(action: :pay, method: :post) do
+              %button カードで購入する
   .footer

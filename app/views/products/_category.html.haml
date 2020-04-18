@@ -5,8 +5,7 @@
   -parent.children.each do |child|
     .parent__child
       =child.name
-                
-      .parent__child__grandchild          
+      .parent__child__grandchild
         -child.children.each_with_index do |grandchild,id|
           .parent__child__grandchild__cont
             = link_to grandchild.name,categoryindex_product_path(grandchild.id),class:'link'
