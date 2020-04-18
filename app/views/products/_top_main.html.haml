@@ -119,8 +119,6 @@
                 .price
                   ¥
                   = new_product.price
-                .star
-                  .star__like
               .product__body__box__tax
                 （税込）
       
@@ -128,7 +126,7 @@
     .pickup_products__title
       ピックアップカテゴリー
     .pickup_products__sub
-      = link_to 'メンズ', '#', class: "mens-item-link"
+      = link_to 'メンズ', '#', class: "pickup-item-link"
     .pickup_products__box
       .product
         .product__image
@@ -145,7 +143,5 @@
                 .price
                   ¥
                   = pickup_product.price
-                .star
-                  .star__like
               .product__body__box__tax
                 （税込）
