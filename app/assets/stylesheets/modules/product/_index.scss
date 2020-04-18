@@ -21,14 +21,12 @@
       &__box{
         .productsearch{
           display: flex;
-
           &__text{
             margin: 10px 0 0 10px;
             height: 40px;
             width: 60vw;
             display: block;
-          }
-        
+          }      
           &__submit{
             cursor: pointer;
             width: 40px;
@@ -41,9 +39,6 @@
           }
         }
       }
-    
-      
-      
     }
     &__various{
       display: flex;
