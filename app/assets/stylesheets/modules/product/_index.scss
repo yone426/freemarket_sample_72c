@@ -32,7 +32,7 @@
             width: 40px;
             height: 42px;
             margin: 10px;
-            background-color: #3ccace;
+            background-color: $mainColor;
             color: #fff;
             font-size: 20px;
             display: block;
@@ -50,7 +50,7 @@
         &__categories{
           padding: 0 30px 0 0;
           i{
-            color: #3BCACD;
+            color: $mainColor;
           }
           .categories{
             color: #333;
@@ -138,7 +138,7 @@
     &__bar{
       width: 70px;
       height: 4px;
-      background-color: #3ccace;
+      background-color: $mainColor;
       margin: 0 auto;
       margin-top: 15px;
     }
@@ -155,7 +155,7 @@
             top: 0;
             left: 0;
             font-size: 30px;
-            background-color: #3ccace;
+            background-color: $mainColor;
             color: #fff;
             padding: 10px 20px;
           }
@@ -164,7 +164,7 @@
           display: flex;
           
           &__left{
-            color: #3ccace;
+            color: $mainColor;
             font-weight: bold;
             font-size: 24px;
             line-height: 50px;
@@ -222,7 +222,7 @@
       &__bar{
       width: 70px;
       height: 4px;
-      background-color: #3ccace;
+      background-color: $mainColor;
       margin: 0 auto;
       margin-top: 15px;
       }
@@ -258,12 +258,12 @@
     &__sub{
       font-size: 24px;
       font-weight: bold;
-      color: #3ccace;
+      color: $mainColor;
       text-align: center;
       margin-bottom: 10px;
       .new-item-link{
         text-decoration: none;
-        color:#3ccacd;
+        color: $mainColor;
       }
     }
     &__box{
@@ -466,7 +466,7 @@
   .new-link{
     border-radius: 50%;
     padding: 75px ;
-    background-color: #3ccace;
+    background-color: $mainColor;
     text-decoration: none;
     position: relative;
     color: #fff;
