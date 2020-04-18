@@ -6,7 +6,6 @@
     width: 70%;
     margin: 0 auto;
     padding: 50px 0 50px 0;
-    
     h1{
       font-size: 1.3em;
       font-weight: bold;
@@ -16,9 +15,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      align-content: flex-start;
-
-      
+      align-content: flex-start; 
       &__content{
         background-color: white;
         border-radius: 15px;
@@ -38,14 +35,9 @@
             color: white;
           }
         }
-
-     
       }
     }
-    
-    
     .boxs{
-    
       .box{
         border-radius: 30px;
         margin-top: 20px;
@@ -61,8 +53,6 @@
             background-color: white;
             padding:20px 20px;
             font-weight: bold;
-            
-
             &__grandchild{
               display: flex;
               flex-wrap: wrap;
@@ -77,16 +67,12 @@
                   margin-top: 10px;
                   display: block;
                   font-size: 0.8em;
-
-                }
-          
+                }        
               }
             }
-
+          }
         }
       }
-
     }
-  }
   }
 }
