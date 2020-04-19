@@ -69,10 +69,23 @@
         .item-btn
           - if user_signed_in?
             .item-btn__left
-              - if !Like.exists?(user_id:current_user.id,product_id:@product.id)
-                = link_to icon('far', 'star') + "お気に入り追加", likes_path(product_id: @product.id),method: :post, remote: true
-              - else
-                = link_to icon('fas', 'star') + "お気に入り解除", like_path(product_id: @product.id),method: :delete, remote: true
+              .wrapper_content
+                .wrapper_content__inner
+                  %input#click{type: 'checkbox'}
+                  %label{for: 'click'}
+                    .favourite
+                      .spinner
+                        -(1..180).each do
+                          .spinner_part
+                      .favourite_heart
+                        .favourite_heart__left
+                        .favourite_heart__right
+                      .favourite_text
+                        %span Favourite this
+              
+              -#   = link_to icon('far', 'star') + "お気に入り追加", likes_path(product_id: @product.id),method: :post, remote: true
+              -# - else
+              -#   = link_to icon('fas', 'star') + "お気に入り解除", like_path(product_id: @product.id),method: :delete, remote: true
             .item-btn__right
               = link_to "不適切な商品の報告","#"
           - else
