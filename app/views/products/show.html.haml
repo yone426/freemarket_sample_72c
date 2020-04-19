@@ -54,7 +54,7 @@
         .choice-btn
           .buy-btn
             - if user_signed_in?
-            
+
               - if @product.status == 1
                 = "SOLD OUT"
               -elsif user_signed_in? && current_user.id == @product.user_id
@@ -107,11 +107,11 @@
                 = form.submit "SEND", class: "message-submit"
             - else
               %p※ コメントの投稿には新規登録/ログインが必要です。
-    %ul.nav-item
-      %li.nav-item__prev
-        = link_to "前のページ"
-      %li.nav-item__next
-        = link_to "次のページ"
+    -# %ul.nav-item
+      -# %li.nav-item__prev
+      -#   = link_to "前のページ"
+      -# %li.nav-item__next
+      -#   = link_to "次のページ"
     .icon-box
       %ul.icon-box__list
         %li.list-one
