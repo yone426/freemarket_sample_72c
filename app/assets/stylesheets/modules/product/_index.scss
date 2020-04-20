@@ -273,14 +273,12 @@
           text-decoration: none;
         }
         &__image{
-          justify-content: space-between;
           .photo{
-          width: 181px;
+          width: 221px;
           height: 150px;
           }
         }
         &__body{
-          justify-content: space-between;
           display: flex;
           &__box{
             padding: 0 10px;
@@ -325,22 +323,17 @@
     &__box{
       margin: 0 160px;
       .product{
-        a {
-          text-decoration: none;
-        }
         &__image{
-          justify-content: space-between;
           .photo{
-          width: 181px;
+          width: 221px;
           height: 150px;
           }
         }
         &__body{
-          justify-content: space-between;
           display: flex;
           &__box{
             padding: 0 10px;
-            width: 162px;
+            width: 202px;
             background-color: #fff;
             margin-right: 5px;
             &__price{
