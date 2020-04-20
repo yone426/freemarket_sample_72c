@@ -269,6 +269,9 @@
     &__box{
       margin: 0 160px;
       .product{
+        a {
+          text-decoration: none;
+        }
         &__image{
           .photo{
           width: 221px;
