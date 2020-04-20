@@ -44,9 +44,10 @@
       .bottom-content
         .purchase-btn
           - if @card.blank?
-            = form_tag(action: :pay, method: :post) do
-              :plain
-                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_7cc71c15790e0cce7327840d"></script>
+            = link_to "購入にはクレジットカードの登録が必要", new_card_path, class: "card"
+            -# = form_tag(action: :pay, method: :post) do
+            -#   :plain
+            -#     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_7cc71c15790e0cce7327840d"></script>
           -else
             = form_tag(action: :pay, method: :post) do
               %button カードで購入する

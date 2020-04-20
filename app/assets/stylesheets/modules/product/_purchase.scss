@@ -112,6 +112,17 @@
           color: grey;     
         }
         .purchase-btn {
+          .card {
+            text-align:center;
+            display: block;
+            line-height: 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #2BCCD1;
+            padding: 10px;
+            margin-bottom : 15px;
+            text-decoration: none;
+          }
           button {
             width: 400px;
             line-height: 30px;
