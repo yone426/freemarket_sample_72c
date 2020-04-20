@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     Payjp::Charge.create(
       amount: @product.price, # 決済する値段
-      :customer => card.customer_id, # フォームを送信すると作成・送信されてくるトークン
+      customer: card.customer_id, # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'	
       )
       @product.update(status: 1)
