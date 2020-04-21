@@ -119,6 +119,13 @@
       }
     }
     &__decide{
+      .back{
+       
+        font-size: 20px;
+        a{
+          color: black;
+        }
+      }
       .out{
         text-align: center;
         margin-bottom: 20px;
@@ -129,7 +136,7 @@
           height: 60px;
           font-size: 20px;
           cursor: pointer;
-        }
+          }
       }
       .save{
         text-align: center;
