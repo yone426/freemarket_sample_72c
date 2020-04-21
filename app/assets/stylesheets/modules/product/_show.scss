@@ -136,11 +136,16 @@
         padding-top: 25px;
         display: flex;
           &__left{
-            width: 50%;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            border: 5px solid #FFD700;
+            border-radius: 30px;
+            text-align: center;
             a {
-              background-color: peru;
               text-decoration: none;
-              color: black;
+              color: #FFD700;
+              font-weight: bold;
             }
           }
           &__right {
@@ -149,7 +154,6 @@
             a {
               background-color: powderblue;
               text-decoration: none;
-              color: royalblue;
             }
           }
         }
